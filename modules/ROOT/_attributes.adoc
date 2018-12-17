@@ -1,0 +1,7 @@
+ifndef::moduledir[]
+:moduledir: .
+endif::[]
+:attachmentsdir: {moduledir}/assets/attachments
+:imagesdir: {moduledir}/assets/images
+:examplesdir: {moduledir}/examples
+:partialsdir: {moduledir}/partials

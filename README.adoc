@@ -1,0 +1,129 @@
+// tag::metadata[]
+// IMPORTANT: the following block (until "end::metadata[]" appears) must be
+// contiguous (no blank lines).
+//
+// DO NOT TOUCH.
+:uri-public-website-root: https://www.barcelona.cat/digitalstandards
+:uri-promoter: https://github.com/AjuntamentdeBarcelona
+//
+// MANDATORY. A language label supported by Asciidoctor,
+// https://asciidoctor.org/docs/user-manual/#customizing-labels, e.g.,
+// en, es, or ca.
+:lang:
+//
+// MANDATORY. Numeric revision in X.Y.Z format, where X, Y and Z are numbers,
+// and Z is optional.
+:revnumber: 0.1
+//
+// MANDATORY. URL pointing to a Git repository with the source code of the
+// document. Something like 'https://github.com/USERNAME/REPONAME'.
+:uri-public-repo:
+//
+// MANDATORY. Exactly the same value you give to key "name" in file antora.yml.
+:component-name:
+//
+// MANDATORY. Title of the document. In web format, it appears as a heading of
+// level 1. In PDF format, it appears in a title page.
+:_title:
+//
+// OPTIONAL. Subtitle of the document.
+:_subtitle:
+//
+// MANDATORY. Semi-colon-separated list of names.
+:authors:
+//
+// OPTIONAL. Semi-colon-separated list of names.
+:_contributors:
+//
+// OPTIONAL. Semi-colon-separated list of names.
+:_reviewers:
+//
+// OPTIONAL. Publication date of the revision. When the default value
+// ("{docdate}") is used, the current date in format YYYY-MM-DD is automatically
+// inserted in this field every time the formatted document (web or PDF) is
+// generated. It's also possible to manually write here a fixed date.
+:revdate: {docdate}
+//
+// MANDATORY. Short summary of the contents of the document.
+:_summary:
+//
+// MANDATORY. Comma-separated list of terms to help classifying and searching
+// the document. In web format, this terms are integrated as SEO enabling
+// metadata. In PDF format, they are shown near the other metadata.
+:keywords: ethical digital standards, technology rights, barcelona, city council
+//
+// MANDATORY. Document's history.
+:_dochistory:
+//
+// MANDATORY. When the document is not in its 1.0 release, yet, we can write "WE
+// URGE YOU NOT TO CITE THIS YET UNTIL REVISION 1.0" Variables like {_title},
+// {authors}, {_subtitle}, {revnumber} or {docyear} can be used here.
+:_citation: {authors}, {docyear}, {_title}
+//
+// MANDATORY. Copyright owner.
+:_copyleft: Barcelona City Council and the authors of the text
+//
+// MANDATORY. Legal terms under which this document can be distributed and/or
+// modified. It's usually not necessary to modify the default contents of this
+// field.
+:_license: Creative Commons Attribution-ShareAlike 4.0 International (CC-BY-SA-4.0)
+//
+// DO NOT TOUCH.
+:page-lang: {lang}
+:uri-public-website: {uri-public-website-root}/{lang}/{component-name}/
+// end::metadata[]
+
+= {_title}
+
+ifeval::["{_subtitle}" != ""]
+[.lead]
+{_subtitle}.
+endif::[]
+
+[abstract]
+{_summary}
+
+This project is part of the {uri-public-website-root}[Barcelona Ethical Digital Standards] initiative by the {uri-promoter}[Barcelona City Council].
+
+This repository contains the source code for a document written in AsciiDoc.
+The public renderized version of the document can be found at {uri-public-website}[{_title}].
+You will find instructions on how to get the renderized version of this and other related documents at https://github.com/AjuntamentdeBarcelona/ethical-digital-standards-site.
+
+== Metadata
+
+// tag::metadata-table[]
+
+[cols="20,80"]
+|===
+| Title                                 | {uri-public-website}[{_title}]
+ifeval::["{_subtitle}" != ""]
+| Subtitle                              | {_subtitle}
+endif::[]
+| Version                               | {revnumber}
+ifeval::["{_revdate}" != ""]
+| Date                                  | {revdate}
+endif::[]
+| Authors                               | {authors}
+ifeval::["{_contributors}" != ""]
+| Contributors                          | {_contributors}
+endif::[]
+ifeval::["{_reviewers}" != ""]
+| Reviewers                             | {_reviewers}
+endif::[]
+| Keywords                              | {keywords}
+ifeval::["{_dochistory}" != ""]
+| Document history                      | {_dochistory}
+endif::[]
+| How to cite                           | {_citation}
+| Copyleft                              | {_copyleft}
+| License                               | {_license}
+|===
+
+// end::metadata-table[]
+
+== Forking and contributing
+
+This document can be forked, adapted, and reused under the conditions of the {_license} license.
+
+We--the maintainers of this project and the City of Barcelona--value your input, enjoy feedback and welcome improvements to our free software projects and documentation.
+For more details see the link:https://github.com/gmarpons/ethical-digital-standards-site/blob/master/CONTRIBUTING.adoc[CONTRIBUTING] file in the main repository of this initiative.

@@ -1,0 +1,12 @@
+[build]
+  base = "preview/"
+  publish = "preview/build/"
+  command = "gulp playbook && node_modules/.bin/antora --stacktrace --fetch --html-url-extension-style=indexify site.patched.yml"
+
+[build.environment]
+  NODE_VERSION = "10"
+  BUILD_ONLY = "true"
+  ANTORA_CACHE_DIR = "node_modules/.cache/antora"
+
+[context.deploy-preview]
+  command = "gulp playbook && node_modules/.bin/antora --stacktrace --fetch --html-url-extension-style=indexify --url $DEPLOY_PRIME_URL site.patched.yml"
