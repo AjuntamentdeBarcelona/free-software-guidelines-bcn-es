@@ -45,7 +45,7 @@
 :revdate: {docdate}
 //
 // MANDATORY. Short summary of the contents of the document.
-:_summary: Una sèrie de mesures i recomanacions per ajudar el personal de l'Institut Municipal d'Informàtica (IMI) en el seu treball diari en projectes basats en programari lliure. Cobreix aspectes tècnics, socials i legals de la contractació, ús i producció de programari lliure.
+:_summary: Una serie de medidas y recomendaciones para ayudar al personal del Instituto Municipal de Informática (IMI) en su trabajo diario en proyectos basados en software libre. Cubre aspectos técnicos, sociales y legales de la contratación, uso y producción de software libre.
 //
 // MANDATORY. Comma-separated list of terms to help classifying and searching
 // the document. In web format, this terms are integrated as SEO enabling
