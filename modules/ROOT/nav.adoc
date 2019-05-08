@@ -3,11 +3,16 @@ include::_attributes.adoc[]
 endif::[]
 include::{partialsdir}/README.adoc[tag=metadata]
 
-// Add here AsciiDoc list items with cross references to all the pages you want
-// to see listed in the navigation menu for this document. See
-// https://docs.antora.org/antora/navigation/list-structures/ for more details
-// on the syntax of this file.
+.$$MAIN
+* xref:introduction.adoc[Introducción]
+* xref:document-organization.adoc[Organización del documento]
+* xref:collaborative-development.adoc[Desarrollo colaborativo]
+* xref:technical-infrastructure.adoc[Infraestructura técnica]
+* xref:component-management.adoc[Gestión de componentes]
+* xref:communities.adoc[Comunidades de software libre]
+* xref:legal-aspects.adoc[Aspectos legales]
+* xref:documentation.adoc[Documentación]
 
-* xref:glossary.adoc[_Guides glossary_]
-* xref:index.adoc[_Authors and other document information_]
-* link:{attachmentsdir}/barcelona_{component-name}_{revnumber}.{lang}.pdf[Download PDF]
+.$$BOTTOM
+* xref:{lang}/glossary:ROOT:glossary.adoc[Glosario de las guías]
+// * link:https://github.com/AjuntamentdeBarcelona/free-software-guidelines-bcn-en/releases/download/v0.2.5/doc.pdf[Download PDF]

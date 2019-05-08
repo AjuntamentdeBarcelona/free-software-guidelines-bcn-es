@@ -1,0 +1,448 @@
+= Aspectos legales
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+include::{partialsdir}/README.adoc[tag=metadata]
+
+Los proyectos de software libre se basan en un conjunto de tecnologías,
+métodos de trabajo y maneras de colaborar, pero todo ello no se sostendría
+sin un dispositivo legal muy especial: las licencias de software libre. El
+uso de licencias libres garantiza per se una serie de derechos inalienables,
+lo que permite en cierta manera flexibilizar la política de propiedad
+intelectual (PI).
+
+== Propiedad intelectual
+
+:!measure:
+:sect: 7.1
+
+Hasta ahora, los contratos con proveedores establecían que todo el software
+desarrollado para el Ayuntamiento en el contexto del contrato, así como la
+documentación asociada, son propiedad del Ayuntamiento.
+
+Con las licencias libres, aunque no se tenga la propiedad legal del código,
+este se podrá utilizar tantas veces como sea necesario y para la tarea que
+se desee, además de poder ser modificado, adaptado y redistribuido (esto
+último en las condiciones que establezca la licencia). Así que el
+Ayuntamiento podría renunciar a toda la PI, pero de momento y de manera
+conservadora la sigue reclamando, como política por defecto (con las
+excepciones que se indican en las alternativas que se detallan a
+continuación). Lo único que no se puede hacer sin ser los propietarios
+legales del código es relicenciar.
+
+El principal criterio para valorar quién se tiene que quedar con la PI en el
+caso de proyectos nuevos es pensar qué entidad garantiza mejor que se tomen
+en cada momento las medidas adecuadas para difundir el proyecto, facilitar
+contribuciones de terceros, hacerlo crecer hasta alcanzar los objetivos y
+hacerlo sostenible a largo plazo.
+
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Establecer el Ayuntamiento de Barcelona como propietario del nuevo código fuente y la nueva documentación 
+--
+[.tags]
+* Contratar
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+Es la opción por defecto, pero no la única. Se le impone al contratista una
+cesión de titularidad de todo el código y documentación generadas.
+
+Tiene sentido especialmente que el Ayuntamiento quiera concentrar todos los
+derechos de propiedad sobre proyectos emblemáticos, de utilidad
+principalmente entre administraciones públicas, y sobre los que pretenda
+determinar en gran medida las reglas de gobernanza.
+--
+
+[sidebar.alternative, id="{sect}.{counter:measure:A}"]
+.Ceder la propiedad del nuevo código fuente al propietario legal del código original 
+--
+[.tags]
+* Contratar
+* Adaptación
+
+
+Cuando adaptamos un producto ya existente, puede ser que para aceptar la
+inclusión de nuestro código en el producto original nos pidan firmar un
+contributor licence agreement (CLA) o contrato equivalente. Si no es así,
+las partes que desarrolle el Ayuntamiento pueden ser de su propiedad.
+--
+
+[sidebar.alternative, id="{sect}.{counter:measure:A}"]
+.Ceder la propiedad del código fuente a una entidad independiente sin ánimo de lucro
+--
+[.tags]
+* Contratar
+* Plugin
+* NuevoProducto
+* Publicación
+
+
+Hay una tercera opción, si el objetivo es que la titularidad recaiga
+finalmente en una entidad externa encargada de la gestión y gobernanza del
+proyecto a largo plazo. Por la naturaleza de la función que realizar, esta
+entidad tendrá normalmente forma legal de fundación. Eso tiene sentido en
+proyectos donde, además del Ayuntamiento, participen financieramente y en la
+toma de decisiones otras entidades públicas, privadas o del tercer
+sector. En este caso, hay que establecer por contrato una cesión de
+derechos, que puede ser directamente a la fundación correspondiente, o bien
+en primer término al Ayuntamiento, que es quien hace el contrato, a fin de
+que sea este quien ceda los derechos a la fundación en un momento posterior.
+
+Esta entidad puede gestionar otros proyectos liberados por el Ayuntamiento o
+de otras entidades asociadas del ámbito público.
+--
+
+[sidebar.alternative, id="{sect}.{counter:measure:A}"]
+.Establecer la empresa o entidad proveedora como propietaria del nuevo código fuente y la documentación 
+--
+[.tags]
+* Contratar
+* Plugin
+* NuevoProducto
+* Publicación
+
+
+Tiene sentido dejar la titularidad en manos de la empresa que desarrolla en
+los siguientes casos:
+
+Componentes de software que son de utilidad general, incluyendo empresas y
+no solo administraciones públicas.
+
+El proveedor es una empresa o cooperativa con una trayectoria contrastada de
+publicación de software libre y gestión de comunidades abiertas, y tiene una
+estrategia creíble de explotación del producto basada en licencias libres.
+--
+
+== Escoger una licencia para el código
+
+:!measure:
+:sect: 7.2
+
+
+Separaremos la decisión en tres casos, dependiendo del escenario:
+
+* `NuevoProducto` o `Publicación`: escogemos, por defecto, la licencia pública
+  general de Affero (AGPL, por sus siglas en inglés).
+
+* `Adaptación`: modificamos un proyecto externo ya existente. En este caso,
+  hay que respetar la licencia que ya tenga.
+
+* `Plugin`: escogemos una licencia de uso común en el ecosistema en que
+  queremos integrar un componente modular.
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Escoger la licencia AGPL-3.0 como licencia de distribución del proyecto 
+--
+[.tags]
+* NuevoProducto
+* Publicación
+
+
+La licencia https://www.gnu.org/licenses/why-affero-gpl.html[GNU Affero
+General Public License v3.0 (AGPL-3.0)] tiene todas las características que
+necesitamos para los proyectos del Ayuntamiento:
+
+Es una licencia con copyleft, tal como obliga la ley española para las
+administraciones públicas que creen productos de software libre, y tal como
+es razonable reclamar a las administraciones para evitar una apropiación
+privada de lo que ha sido financiado con dinero público.
+
+Para aplicaciones en las que los usuarios interactúan principalmente a
+través de internet, no permite crear un servicio cerrado utilizando software
+con esta licencia (establece el acceso por red como una forma de
+distribución a efectos de la licencia). Es lo que se denomina a veces
+copyleft de red.
+
+El órgano de gobernanza de la licencia es el proyecto GNU, que es una
+organización sin ánimo de lucro que trabaja en beneficio de las comunidades
+de software libre. Por lo tanto, es este grupo de activistas y expertos el
+que diseñará las futuras versiones de la licencia (para adaptarse a nuevas
+circunstancias técnicas o legales) y las estrategias de defensa legal frente
+a posibles ataques a las libertades que establece su texto.
+
+Las razones principales para escoger esta licencia como opción por defecto
+son las siguientes:
+
+* Pertenece a la familia de licencias de la GNU GPL, que es la más
+  conocida. La mayoría de desarrolladores están familiarizados con sus
+  condiciones y eso evita que se tenga que dedicar tiempo a investigar la
+  licencia para decidir si se quiere participar en el proyecto o no.
+
+* Optar por las licencias de uso más generalizado reduce el riesgo de
+  fragmentación de este procomún inmaterial universal que supone el software
+  libre, riesgo provocado por la proliferación de licencias y sus
+  incompatibilidades recíprocas.
+
+[.drawback]
+****
+Está escrita en inglés. A título informativo se pueden utilizar traducciones
+a otros idiomas, pero solo la versión original tiene validez legal.
+****
+--
+
+[sidebar.alternative, id="{sect}.{counter:measure:A}"]
+.Escoger la licencia EUPL-1.2 como licencia de distribución del proyecto
+--
+[.tags]
+* NuevoProducto
+* Publicación
+
+
+La licencia
+https://joinup.ec.europa.eu/page/introduction-eupl-licence[European Union
+Public License 1.2] (EUPL-1.2) es una licencia creada por la Comisión
+Europea.
+
+Presenta como ventaja sobre las licencias de la familia GNU GPL el hecho de
+disponer de traducciones legalmente válidas a todos los idiomas oficiales de
+la Unión Europea: https://joinup.ec.europa.eu/page/eupl-text-11-12. También
+en su diseño se ha tenido en cuenta la diversidad legal de los Estados
+miembros en cuanto a terminología sobre copyright, garantías y jurisdicción
+aplicable.
+
+Igual que la AGPL-3.0, dispone de copyleft y de copyleft de red. Las
+condiciones de copyleft que establece en caso de enlazado (linking) con
+otros productos son más suaves que las de AGPL-3.0, y más parecidas a las de
+LGPL. No obstante, muchos juristas piensan que estas diferencias pueden ser
+irrelevantes de cara a los tribunales europeos. El detalle de las
+diferencias con GPL-3.0 (y también con AGPL-3.0) se detalla en:
+https://joinup.ec.europa.eu/news/eupl-or-gplv3-comparison-t.
+
+Utilizar esta licencia (en su última versión, la 1.2) tendría que suponer un
+riesgo de fragmentación bajo por el procomún del software libre, ya que en
+su redactado establece compatibilidad explícita con las principales familias
+de licencias con copyleft, incluidas las de GNU. Se pueden encontrar más
+detalles sobre la compatibilidad de la EUPL-1.2 con otras licencias en
+https://joinup.ec.europa.eu/page/eupl-compatible-open-source-licences.
+
+El órgano de gobernanza de la licencia es la Comisión Europea, a través de
+su iniciativa Join up.
+
+*Inconveniente*. Es una licencia mucho menos conocida y extendida que las de la familia GNU GPL.
+Muchos desarrolladores dudarán sobre si utilizarla. En el mejor de los casos se los podrá convencer de que sus condiciones son muy similares a las del AGPL-3.0. 
+En el peor escenario, preferirán contribuir a otro proyecto con una licencia a la que estén habituados.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Utilizar para todo el código que modifica un componente ya existente su licencia original 
+--
+[.tags]
+* Contratar
+* Adaptación
+
+Cuando modificamos un componente, y a fin de que nuestras modificaciones
+puedan incorporarse potencialmente al producto original, hay que respetar la
+licencia que nos viene dada, aunque en el caso de licencias permisivas
+podríamos modificarla.
+
+En el caso de un desarrollo bajo contrato, hay que especificar en los
+pliegos esta circunstancia.
+
+Si hemos respetado la medida S_58B, el componente que estamos modificando
+tendrá una licencia libre.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Escoger una licencia de uso común en el ecosistema o plataforma tecnológica del componente que desarrollar 
+--
+[.tags]
+* Contratar
+* Plugin
+
+Si tenemos que construir una extensión enchufable a una plataforma existente
+(cuyo core, por la medida S_58B, debe ser libre), tenemos un cierto margen
+para escoger la licencia. Conviene escoger una licencia entre las más
+utilizadas dentro del framework o plataforma en cuestión, con el fin de
+facilitar la aceptación del nuevo componente por parte de la comunidad. Nos
+interesa que más gente utilice y contribuya a mantener nuestro
+componente. Si entre estas licencias más populares se encuentran la AGPL o
+la EUPL, las escogeremos.
+--
+
+== Cumplir con las obligaciones de las licencias
+
+:!measure:
+:sect: 7.3
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Escribir una checklist con las obligaciones de las licencias usadas y hacer seguimiento de su cumplimiento 
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+Cada licencia otorga derechos y obligaciones diferentes, tanto para los
+usuarios como para los desarrolladores. Hay que garantizar que se cumple con
+las obligaciones de todas las licencias de los componentes principales del
+proyecto, las hayamos escogido nosotros o no.
+
+Pueden ser de gran utilidad los resúmenes que muestra la página
+https://tldrlegal.com/, por ejemplo:
+
+* https://tldrlegal.com/license/gnu-affero-general-public-license-v3
+
+* https://tldrlegal.com/license/european-union-public-licence
+
+También puede servir este resumen (hay que fijarse, sobre todo, en el
+apartado “Conditions” de cada licencia):
+https://choosealicense.com/licenses/.
+
+En el caso de la EUPL también conviene leer el documento
+https://joinup.ec.europa.eu/page/guidelines-users-and-developers[Guidelines
+for users and developers].
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Subir el texto de la licencia al repositorio principal 
+--
+[.tags]
+* Día1
+* Plugin
+* NuevoProducto
+* Publicación
+
+La licencia irá en texto plano en un fichero denominado LICENSE (sin
+extensión), en el directorio raíz del repositorio.
+
+El texto de las dos licencias recomendadas (que hay que copiar de forma
+literal) se puede encontrar en:
+
+* https://www.gnu.org/licenses/agpl.txt
+
+* https://joinup.ec.europa.eu/sites/default/files/inline-files/EUPL%20v1_2%20EN(1).txt
+
+El fichero LICENSE debe estar en inglés. En caso de utilizar la licencia
+EUPL-1.2, que tiene traducciones oficiales, opcionalmente podemos incluir
+ficheros `LICENSE.ca.txt` y `LICENSE.es.txt`. Las diferentes traducciones se
+encuentran en
+https://joinup.ec.europa.eu/page/eupl-text-11-12.[https://joinup.ec.europa.eu/page/eupl-text-11-12].
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Incluir la notificación de copyright y de licencia en cada fichero de código
+--
+[.tags]
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+La mayoría de licencias especifican una condición denominada, en inglés,
+License and copyright notice.
+
+Todos los ficheros de código del repositorio (excluyendo scripts de build o
+de instalación) tienen que incluir al inicio una notificación que haga
+explícito qué personas o entidades son propietarias legales del código (en
+inglés, copyright holder), y cuál es la licencia que establece los términos
+de la distribución.
+
+Es importante señalar bajo qué versión concreta de la licencia se hace la
+distribución, y se recomienda señalar que se dará por realizada una
+actualización automática a futuras versiones de la licencia cuando estas se
+publiquen (normalmente para adaptarse a nuevas situaciones técnicas o
+jurídicas que no se habían podido prever), sin necesidad de actualizar todos
+los ficheros de código. En los ejemplos de más abajo eso se indica mediante
+frases como “either version X of the License, or (at your option) *any later
+version*” o bien “version X or —as soon they will be approved by the
+European Commission— *subsequent versions* of the EUPL”.
+
+La notificación debe ir, obviamente, dentro de un comentario, empleando la
+sintaxis para comentarios que cada lenguaje de programación utilice. Y tiene
+que incluir todos los años en que se hayan realizado modificaciones en el
+fichero. Este sería un ejemplo, si utilizamos la AGPL-3.0 sobre código Java,
+suponiendo que el propietario del código sea el Ayuntamiento de Barcelona:
+
+[source, java]
+----
+/* Copyright (C) 2017, 2018 Ajuntament de Barcelona
+ *
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License as published by the Free
+ * Software Foundation, either version 3 of the License, or (at your option) any
+ * later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>
+ */
+
+/* This file implements a system for ...
+ */
+
+import ...
+----
+
+El mismo ejemplo, utilizando la EUPL-1.2:
+
+[source, java]
+----
+/* Copyright (C) 2017, 2018 Ajuntament de Barcelona
+ *
+ * Licensed under the EUPL, Version 1.2 or – as soon they will be approved by
+ * the European Commission - subsequent versions of the EUPL (the "Licence");
+ * You may not use this work except in compliance with the Licence. You may
+ * obtain a copy of the Licence at:
+ *
+ * https://joinup.ec.europa.eu/software/page/eupl
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the Licence is distributed on an "AS IS" basis, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * Licence for the specific language governing permissions and limitations under
+ * the Licence.
+ */
+
+/* This file implements a system for ...
+ */
+
+import ...
+----
+
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Establecer un procedimiento para garantizar la integridad de las contribuciones
+--
+[.tags]
+* Contratar
+* Plugin
+* NuevoProducto
+* Publicación
+
+Eso significa que de todo el código incluido en el repositorio se tiene
+permiso de la persona que lo ha escrito (que no siempre es la persona que
+hace el commit) para que esté allí bajo las condiciones de la licencia del
+proyecto.
+
+Si los propietarios del código tienen que ser diferentes de los autores (por
+ejemplo, porque la propiedad es del Ayuntamiento de Barcelona), hay que
+obtener una cesión de derechos. Esta cesión se puede conseguir de las
+siguientes maneras:
+
+* Mediante un contrato tipo contributor agreement
+* Mediante el propio contrato de la licitación correspondiente
+* Directamente, a través de la licencia del software
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Obligar a todos los contribuyentes de código externos a enviar un DCO y firmar cada commit 
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+El *Developer’s Certificate of Origin (DCO)* es el documento utilizado para
+verificar que los desarrolladores que hacen contribuciones al proyecto
+conocen y aceptan su licencia.
+--

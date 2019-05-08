@@ -1,0 +1,611 @@
+= Gestión de componentes
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+include::{partialsdir}/README.adoc[tag=metadata]
+
+== Búsqueda y selección de componentes de software libre
+
+:!measure:
+:sect: 5.1
+
+A no ser que nuestra necesidad sea muy especializada, es probable que ya
+exista una solución libre (o combinación de soluciones) que resuelva el
+problema, como mínimo en parte.
+
+Hay que tener en cuenta que los proyectos de software libre ofrecen más
+posibilidades de transformación y adaptación a nuestras necesidades que las
+aplicaciones tradicionales.
+
+Conocer si un proyecto se adecua a nuestras necesidades y cumple con los
+mínimos exigibles en los aspectos técnico, legal y social puede resultar
+costoso. Pero los beneficios de encontrar un proyecto existente al que
+sumarse, en lugar de reinventar la rueda —y evitar el denominado síndrome
+*Not invented here* o *(NIH)*—, pueden ser extraordinarios, tanto a corto
+como a largo plazo:
+
+* Puede ser que de entrada muchas de las funcionalidades que necesitamos ya
+  estén implementadas, y podamos construir muy rápidamente prototipos y
+  pruebas de concepto.
+
+* Podemos beneficiarnos de la experiencia adquirida por otros usuarios que ya
+  han intentado implantar un sistema parecido al que queremos, quizás
+  descubriendo oportunidades que no habíamos pensado.
+
+* Podemos compartir el gasto de construir una herramienta compleja con otros
+  usuarios y entidades. Eso incluye potenciales futuras funcionalidades y
+  ampliaciones, que pueden interesar también a otros usuarios.
+
+* Si el producto tiene una base de usuarios suficiente, obtenemos una
+  herramienta que evoluciona en el tiempo, mejorando con las aportaciones de
+  otras partes, adaptándose a futuros cambios tecnológicos, incorporando
+  nuevas funcionalidades propias o de terceros. Con muy poco gasto en
+  mantenimiento obtenemos sostenibilidad a largo plazo y una reducción del
+  peligro de crear *deuda tecnológica*.
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Buscar un proyecto o componente existente que resuelva el problema, quizás parcialmente 
+--
+[.tags]
+* Ante
+* proyecto
+* Integración
+* Adaptaciñon Plugin NuevoProducto
+
+Además de utilizar los motores de búsqueda habituales, conviene buscar
+directamente en sitios como los siguientes:
+
+* https://joinup.ec.europa.eu/solutions[Repositorio de soluciones de la
+  iniciativa Join up de la UE]
+* https://www.gnu.org/software/software.en.html[Lista de software GNU]
+* https://openhub.net/[OpenHub]
+* https://github.com/[GitHub]
+* https://freshcode.club/[Freshcode.club]
+* https://administracionelectronica.gob.es/ctt/buscadorSoluciones.htm[Buscador
+  de soluciones del Centro de Transferencia de Tecnología].
+
+Dependiendo de la plataforma o arquitectura tecnológica con la que se
+trabaje, también hay que buscar en repositorios especializados, tales como:
+
+* Repositorio de Drupal
+* Repositorio de CKAN
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Rellenar una tabla comparativa de los diferentes componentes que evaluar para cubrir una necesidad 
+--
+[.tags]
+* Anteproyecto
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+
+
+Puede tener que repetirse para cada uno de los componentes de un sistema.
+
+Ejemplo de tabla:
+
+[cols="45,18,18,18", options="header"]
+|===
+| Elemento
+| Componente A
+| Componente B
+| Componente C
+
+| Nombre
+|
+|
+|
+
+| Licencia (y condiciones que nos pueden afectar)
+|
+|
+|
+
+| % de la funcionalidad que necesitamos
+|
+|
+|
+
+| Proyectos IMI que ya lo utilizan y personas familiarizadas
+|
+|
+|
+
+| Soporte comercial
+|
+|
+|
+
+| Otras grandes organizaciones que lo utilizan
+|
+|
+|
+
+| Actividad en el bug 
+|
+|
+|
+
+| Diversidad de commits
+|
+|
+|
+
+| Diversidad de organizaciones
+|
+|
+|
+
+| Tono y utilidad de los foros de discusión
+|
+|
+|
+
+| Comunicación pública del proyecto
+|
+|
+|
+
+| Méritos de calidad del código
+|
+|
+|
+
+| Otras consideracioness
+|
+|
+|
+|===
+
+Otras cuestiones que se pueden tener en cuenta, además de las submedidas que
+se desarrollan más adelante:
+
+* Facilidad de adaptación y evolución de los diferentes componentes
+
+* Coste inmediato y coste a largo plazo, incluyendo los costes de salida
+
+* Existencia de una comunidad informal o red de soporte local y global
+
+* Soluciones innovadoras (y valor que eso aporta)
+
+* Impacto sobre la privacidad y la soberanía de datos
+--
+
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Escoger componentes con una licencia aprobada por la OSI o por la FSF 
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+
+
+Los dos conjuntos de licencias válidas son casi idénticos:
+
+* https://www.gnu.org/licenses/license-list.es.html
+* https://opensource.org/licenses
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Favorecer componentes con una mayor diversidad y peso de los contribuyentes 
+--
+[.tags]
+* Anteproyecto
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+
+
+Aquí entendemos contribuciones en un sentido amplio: commits en el
+repositorio de código, bug reports, traducciones, etcétera.
+
+Es más importante la diversidad (personas y entidades diferentes que
+participan) que la cantidad de las contribuciones (por ejemplo, número de
+commits por mes).
+
+Si el componente presenta contribuciones por parte de organizaciones
+importantes (empresas de un cierto tamaño, universidades, instituciones), es
+más probable que, aunque alguno de los contribuyentes falle, el proyecto
+continúe. Pero también puede ser muy buena señal que muchas personas a
+título individual hagan contribuciones y que se tengan en cuenta.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Favorecer componentes con actividad reciente 
+--
+[.tags]
+
+
+En primer lugar, hay que analizar la actividad en el bug tracker y observar
+lo siguiente:
+
+La cantidad de notificaciones de deficiencias. No nos tiene que alarmar que
+haya muchas notificaciones abiertas y no resueltas, el número de incidencias
+tiende a crecer linealmente con el número de usuarios, pero, en cambio, el
+número de desarrolladores suele crecer más lentamente.
+
+Que los desarrolladores estén respondiendo a las incidencias. Insistimos: si
+el número de usuarios es elevado, habrá siempre muchas incidencias abiertas,
+pero es importante observar que los desarrolladores participan habitualmente
+en el bug tracker, que no lo hayan abandonado.
+
+Después hay que mirar la actividad pública del proyecto, teniendo en cuenta
+lo siguiente:
+
+* Antigüedad de las últimas releases públicas, noticias publicadas en forma de
+  blog o similar.
+* El tono, la utilidad y la diversidad de participantes en el foros de
+  discusión y canales de comunicación públicos del proyecto.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Favorecer componentes con una documentación completa y al día 
+--
+[.tags]
+
+
+Que la documentación esté en un repositorio público y que haya bastante
+diversidad de personas que contribuyan también es una muy buena señal.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Favorecer componentes para los que exista soporte comercial 
+--
+[.tags]
+* Anteproyecto
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+ 
+
+En productos con licencia libre, siempre será posible contratar a alguien a
+fin de que los modifique y mantenga o resuelva problemas. No obstante,
+obtenemos una mayor garantía de éxito si ya existen empresas o personas que
+ofrecen soporte profesional sobre el componente en cuestión, y que, por lo
+tanto, se puede asumir que lo conocen bien.
+
+Es mejor que haya diferentes empresas ofreciendo servicios comerciales sobre
+el producto que solo una, ya que en este segundo caso incurriríamos en una
+mayor dependencia hacia esta empresa. Es habitual un modelo de negocio en el
+que la misma empresa que desarrolla el producto (quizás sin mucho soporte
+comunitario externo) ofrezca también soporte comercial sobre este. No se
+tiene que descartar de entrada, pero es mejor que el soporte profesional se
+encuentre diversificado.
+
+La existencia de empresas que ya inicialmente ofrecen servicios
+profesionales sobre un producto puede facilitar también realizar una
+evaluación tentativa del coste que supondrá adaptarlo o mantenerlo.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Favorecer componentes que faciliten el acceso a la información sobre el desarrollo y la instalación 
+--
+[.tags]
+* Anteproyecto
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+
+
+La transparencia es un pilar básico de los proyectos de software libre, sin
+ella es muy difícil que todo el resto funcione bien.
+
+Que un componente ofrezca instrucciones detalladas y precisas sobre cómo
+instalarlo facilita que se pueda hacer una evaluación técnica independiente
+de este.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Favorecer componentes con buenas métricas de calidad del código
+--
+[.tags]
+* Anteproyecto
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+
+
+El hecho de que tanto el código como las herramientas de gestión de
+proyectos (bug-trackers, listas de correo, foros) sean públicas implica que,
+sobre los proyectos de software libre, sea posible extraer algunas métricas
+objetivas muy difíciles de conseguir en el caso de software privativo.
+
+Algunas métricas que se pueden obtener para ciertos proyectos son las
+siguientes:
+
+* Cantidad de comentarios, en https://openhub.net/[OpenHub].
+
+* Porcentaje de código cubierto por los casos de prueba.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Favorecer componentes con los que el IMI ya ha adquirido familiaridad
+--
+[.tags]
+* Anteproyecto
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+
+
+Cuando necesitamos adaptar un componente de software libre ya existente,
+conocer de antemano el proyecto y la comunidad que lo sustenta presenta
+muchas ventajas:
+
+Puede ser que el IMI tenga ya identificadas personas clave dentro de la
+comunidad.
+
+Se puede hacer una estimación más realista del coste en tiempo y en dinero
+de las modificaciones que se pretende hacer, y de las posibilidades de que
+sean integradas en el producto original.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Favorecer componentes con una licencia compatible con la GPL
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+
+Esta información la ofrece la Free Software Foundation (FSF) en su listado
+de licencias: https://www.gnu.org/licenses/license-list.es.html.
+
+Las licencias de la familia de la General Public License (GPL) son unas de
+las más comunes. Para evitar conflictos de licencia con otros componentes
+que posiblemente necesitaremos, conviene que todos nuestros componentes sean
+compatibles con GPL.
+--
+
+[[S_2F1]]
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Favorecer componentes que formen parte de la distribución estable de Debian
+--
+[.tags]
+* Anteproyecto
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+
+
+Todo componente de la solución que esté incluido en la distribución estable
+de Debian en el momento de diseñar el proyecto, o que se pueda ejecutar
+sobre Debian Estable sin necesidad de adaptación, y que sea
+multiarquitectura, se considera un componente duradero y fiable.
+
+Cuando menos, hay que favorecer componentes que puedan ejecutarse, en su
+versión estándar descargable en la web del proyecto, sobre plataformas
+libres, preferiblemente GNU/Linux y sin que existan restricciones en cuanto
+a lo siguiente:
+
+Requerir una distribución particular de GNU/Linux (por ejemplo, un software
+que solo se ejecute en entornos CentOS y no sobre Debian).
+
+Versiones demasiado específicas de los elementos principales de la
+plataforma, sobre todo si se trata de versiones demasiado antiguas o fuera
+de su periodo de mantenimiento estándar (por ejemplo, un software que
+requiera un kernel de Linux en una versión 3.*, o unas librerías básicas del
+sistema desfasadas).
+
+Requerir una arquitectura de hardware específica (por ejemplo, soluciones
+que solo se ejecuten en máquinas Intel).
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Considerar todas las posibilidades y todas las implicaciones antes de iniciar un fork social 
+--
+[.tags]
+* Anteproyecto
+* Adaptación
+* NuevoProducto
+
+Cuando se dispone de un código que ha sido publicado con licencia libre pero
+se necesita evolucionar el producto en una dirección incompatible con los
+planes de quien gobierna el proyecto, puede ser necesario hacer un fork (en
+el sentido fuerte del término, o social fork).
+
+Hacer un fork tiene muchos inconvenientes, y, por lo tanto, tiene que ser el
+último recurso. Por una parte, dificulta mucho compartir código con el
+producto original a partir del momento del fork. Y, quizás más
+significativo, supone dividir la comunidad original y obligar a cada
+desarrollador a decidir qué proyecto prioriza.
+--
+
+
+== Gestión de dependencias
+
+:!measure:
+:sect: 5.2
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Llevar un registro exhaustivo de todos los paquetes de software utilizados, que tienen que ser libres 
+--
+[.tags]
+* Contratar
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+En caso de contrato, debe indicarse en los pliegos y añadir que el IMI tiene
+la última palabra sobre la inclusión de una dependencia.
+
+[.clause]
+.Ejemplo de cláusula: Gestión de las dependencias de software
+====
+El adjudicatario llevará un registro exhaustivo de todos los paquetes de
+software utilizados en la solución, que tienen que estar distribuidos bajo
+una licencia de software aceptada por la Open Source Initiative (OSI,
+https://opensource.org/licenses) o bien por el proyecto GNU
+(https://www.gnu.org/licenses/license-list.es.html). Como requisito
+adicional, la licencia de todos los paquetes utilizados no tiene que
+producir problemas de incompatibilidad con la licencia principal del
+producto, la EUPL-1.2. El Ayuntamiento de Barcelona se reserva la potestad
+de exigir que se retire una dependencia de software del producto si
+considera que puede constituir un riesgo legal y el adjudicatario está
+obligado a sustituir el paquete por otro, o bien cubrir la funcionalidad con
+desarrollo propio.
+====
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Utilizar un software de monitorización de licencias 
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+Por ejemplo:
+
+* https://www.fossology.org/
+* http://creadur.apache.org/
+
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.No copiar dependencias externas al repositorio si no es por una causa excepcional
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+A veces se decide copiar un subcomponente que se encuentra disponible en un
+repositorio propio en el repositorio del componente que estamos construyendo
+(sea en forma de código fuente, binario o de bytecode). Se dice que esta
+dependencia se encuentra bundled. A veces se busca con eso un despliegue o
+un ciclo de desarrollo más sencillo, pero se considera una mala práctica por
+los siguientes motivos:
+
+* Los cambios y actualizaciones en el subcomponente ensucian la historia de
+  cambios del componente principal.
+* Es más difícil dar cuenta correctamente de la autoría y licenciamiento de
+  cada parte del código.
+
+Pueden darse circunstancias excepcionales que justifiquen no obedecer esta
+medida.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Buscar las dependencias inadecuadas y encontrar sustitutos con licencia libre 
+--
+[.tags]
+* Publicación
+
+Deben eliminarse los componentes con las siguientes características:
+
+* Con licencia propietaria.
+
+* Propiedad del Ayuntamiento de Barcelona, pero que de momento no se puedan
+  abrir.
+
+* Que presenten algún tipo de incompatibilidad de licencia con otros
+  componentes del producto que abrir.
+
+* Que no puedan ser instalados en un sistema operativo libre.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Financiar una auditoría de seguridad del componente que utilizar 
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Financiar encuentros y hackathons relacionadas con el componente que utilizar
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Integrar personal del IMI en las tareas de desarrollo
+--
+[.tags]
+* Contratar
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+
+Se puede establecer por contrato y puede ser cualquier tarea relacionada con
+el desarrollo:
+
+* Escritura de código
+* Escritura de documentación
+* Revisiones de código
+* Creación, ejecución y análisis de baterías de pruebas
+
+El objetivo es tener personal propio familiarizado con un software que se
+seguirá utilizando en el futuro, una vez se acabe el contrato de desarrollo
+actual. Se trata de profundizar en la soberanía y evitar al máximo la
+dependencia de proveedores únicos.
+--
+
+
+== Sustitución de servicios privativos habituales
+
+:!measure:
+:sect: 5.3
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Utilizar Piwik (si se necesita una herramienta de analítica web) 
+--
+[.tags]
+* Contratar
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+No hay que utilizar Google Analytics. En su lugar, pueden utilizarse
+herramientas como Piwik.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Utilizar OpenStreetMap (si se necesita presentar información cartográfica presente en esta herramienta) 
+--
+[.tags]
+* Contratar
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+No hay que utilizar Google Maps.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Publicar apps Android en F-Droid (si uno de los productos es una app Android)
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+En el caso de apps para la plataforma Android, publicar las apps en el
+repositorio libre F-Droid, además del repositorio Google Play o aquellos que
+más personas utilicen.
+--

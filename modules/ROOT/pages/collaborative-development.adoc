@@ -1,0 +1,889 @@
+= Desarrollo colaborativo
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+include::{partialsdir}/README.adoc[tag=metadata]
+
+En los proyectos de software libre hay una cultura de trabajar en abierto,
+ya que esta facilita las condiciones que los hacen sostenibles financiera y
+técnicamente. Es de interés para todos los proyectos incrementar la
+afluencia de recursos hacia los mismos, y eso pasa por lo siguiente:
+
+* Incrementar la cantidad de personas o instituciones que utilizan el
+  software.
+
+* Propiciar la transición de cualquier persona o entidad usuaria a alguien que
+  participe en el proyecto de la manera que sea: contribuyendo con código,
+  testing, correcciones, financiación, difusión, traducciones, etcétera.
+
+Fuera de este modelo, basado en incentivar la colaboración, es muy difícil
+materializar las ventajas potenciales que ofrece el paradigma del software
+libre. Hay dos elementos clave en todo esto:
+
+* *Transparencia*.
+  Esta no se tiene que limitar al código.
+  Para que haya verdadera colaboración, la transparencia debe abarcar toda la infraestructura de comunicación, conocimiento y toma de decisiones del proyecto.
+
+* *Diseminación del conocimiento*.
+  A diferencia de los modelos de negocio clásicos, aquí interesa que el conocimiento sobre el producto, hasta los detalles más técnicos, esté lo más distribuido posible.
+  Eso reduce el riesgo tecnológico y la dependencia del Ayuntamiento sobre empresas concretas.
+
+* *Participación de la comunidad*.
+  Esto refuerza tanto el proyecto, con más ideas y recursos, como las comunidades locales.
+
+Trabajar en abierto supone que los siguientes elementos sean públicamente
+accesibles (para lectura) a toda persona interesada en formatos abiertos,
+sin tener que usar herramientas privativas y de forma anónima (sin tener que
+registrarse en ningún servicio web y mucho menos teniendo que contratar
+servicios de pago):
+
+* El repositorio de código.
+
+* El gestor de incidencias (donde, entre otros, se notifican y gestionan los
+  defectos o bugs).
+
+* Los documentos de diseño.
+
+* La documentación de usuario/a.
+
+* Los canales de comunicación donde el equipo de desarrollo toma las
+  decisiones técnicas.
+
+Trabajar en abierto no significa (necesariamente) lo siguiente:
+
+* Que personas externas al proyecto tengan acceso de escritura al repositorio
+  (son libres de copiar el código en un repositorio propio y modificar su
+  copia).
+
+* Que todo el mundo tenga permiso para escribir notificaciones de defectos e
+  intervenir en el gestor de incidencias, cada proyecto puede escoger su
+  política de calidad.
+
+* Que el equipo del proyecto tenga que leer y responder todas las
+  notificaciones de defectos (si están abiertas para escritura) ni todas las
+  preguntas en los canales de comunicación abiertos.
+
+* Que el equipo del proyecto tenga que revisar todas las sugerencias y
+  contribuciones (pull requests, patches) que reciba, si se considera que los
+  recursos están mejor invertidos en otra tarea.
+
+
+== Trabajar en abierto desde el día 1
+
+Un aspecto importantísimo que tener en cuenta es que cuanto más tiempo se
+gestiona un proyecto de forma cerrada, más costoso es después abrirlo. Si se
+espera demasiado, puede suceder que algunas medidas no lleguen nunca a
+implementarse, pues su coste resultaría prohibitivo. Las razones de esto se
+resumen en lo siguiente:
+
+* Tener canales de comunicación abiertos desde el día 1 no significa que los
+  “extraños” nos tengan que distraer desde el primer día. En el presente
+  documento se explica cómo dejar claros cuáles son nuestros compromisos, que
+  podemos modular en cada fase.
+
+* Es imposible compensar los incentivos que tienen los desarrolladores para
+  hacer cosas de manera *rápida y fea* con futuras amenazas de apertura. Si no
+  se actúa en abierto desde el principio, inevitablemente se incurrirá en
+  https://es.wikipedia.org/wiki/Technical_debt[deuda tecnológica] con la
+  intención de arreglar las cosas en un futuro (que nunca llega).
+
+* Cuando llega el día de abrir el código, nos encontramos de repente con que
+  tenemos cuestiones como las siguientes:
+
+** Configuraciones de usuario específicas y contraseñas dentro del repositorio.
+
+** Notificaciones de defectos que contienen información sensible que no se
+   puede hacer pública.
+
+** Correspondencia entre desarrolladores donde se mezcla información técnica
+   útil con opiniones personales que no estaban pensadas para que todo el mundo
+   las pudiera leer.
+
+** Dependencias sobre componentes de software que no se pueden usar en un
+   proyecto de software libre, o que generan problemas de licencias.
+
+** Documentación o procedimientos de build escritos con herramientas
+   propietarias que no permiten su publicación.
+
+** (Y una lista inacabable de cosas).
+
+La apertura del código provoca tener que tomar decisiones difíciles, que no
+se producirían si hubiera sido abierto desde el principio (perder tiempo
+limpiando el historial de defectos o crear uno nuevo y perder el historial
+completo, etcétera).
+
+Se crea un gran acontecimiento de apertura que supone un alto riesgo para el
+proyecto, ya que se tienen que hacer muchos cambios de golpe, y todo el
+proyecto y sus potenciales vulnerabilidades quedan expuestos también de
+golpe (y muchos ojos, no siempre bien intencionados, estarán mirando). Antes
+del acontecimiento, eso crea incertidumbre y preocupación. Después del
+acontecimiento, puede provocar un alud de incidencias que en condiciones
+normales habrían llegado escalonadamente.
+
+Todos estos elementos se justifican ampliamente en los apartados
+https://producingoss.com/es/setting-tone.html#be-open-from-day-one[“Be open
+from day one”] y
+https://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs[“Being
+open source from day one is especially important for Government projects”]
+del libro https://producingoss.com/en/index.html[Producing Open Source
+Software], cuya lectura es muy recomendable para las personas responsables
+de cada proyecto.
+
+Las medidas y recomendaciones que tener en cuenta para no retrasar esta
+apertura se encuentran repartidas en toda la guía, etiquetadas como
+“Día1”. Las presentamos todas aquí listadas:
+
+[cols="10,40,10,40", options="header"]
+|===
+|ID
+|Title
+|Type
+|Tags
+
+|A_D4F
+Vincular el repositorio principal a un gestor de incidencias público
+|Alternativa
+|Día1_;_ Adaptación_;_ Plugin_;_ NuevoProducto_;_ Publicación
+
+|M_F25
+|Subir un fichero README al repositorio principal
+|Medida
+|Día1_;_ Plugin_;_ NuevoProducto_;_ Publicación
+
+|M_4F5
+|Publicar unas breves directrices para desarrolladores (developer guidelines)
+|Medida
+|Día1_;_ Plugin_;_ NuevoProducto_;_ Publicación
+
+|R_368
+|Vincular el repositorio principal a un sistema de integración continua con licencia libre.
+|Recomendación
+|Día1_;_ Adaptación_;_ Plugin_;_ NuevoProducto_;_ Publicación
+
+|M_97E
+|Subir el texto de la licencia al repositorio principal
+|Medida
+|Día1_;_ Plugin_;_ NuevoProducto_;_ Publicación
+
+|M_A60
+|Crear el repositorio principal en el espacio [.line-through]#GitHub# de publicación abierta_de software del Ayuntamiento 
+|Medida
+|Day1__;__ Adaptation__;__ Plugin__;__ NewProduct__;__ Publication
+
+|M_A63
+|Utilizar el repositorio principal [.line-through]#en GitHub# como web de desarrollo del proyecto
+|Medida
+|Día1_;_ Plugin_;_ NuevoProducto_;_ Publicación
+
+|M_35A
+|Vincular el repositorio principal al gestor de incidencias
+|Medida
+|Día1_;_ Adaptación_;_ Plugin_;_ NuevoProducto_;_ Publicación
+
+|R_2D5
+|Reservar una URL permanente para el proyecto, y usarla siempre para hacer referencia a este
+|Recomendación
+|Día1_;_ Integración_;_ Plugin_;_ NuevoProducto_;_ Publicación
+
+|link:#M_7EA[M_7EA]
+|Implementar y documentar procedimientos de build e instalación con herramientas libres y de uso extendido
+|Medida
+|Día1_;_ Plugin_;_ NuevoProducto_;_ Publicación
+
+|M_CC5
+|Subir un fichero con instrucciones de instalación en el repositorio principal
+|Medida
+| 
+|
+|Día1_;_ Integración_;_ Plugin_;_ NuevoProducto_;_ Publicación
+|===
+
+
+== Contratación para desarrollar colaborativo
+
+:!measure:
+:sect: 3.2
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Adjudicar a entidades con experiencia en desarrollo colaborativo
+--
+[.tags]
+* Contratar
+* Adaptación
+* Plugin
+* NuevoProducto
+
+
+Hay que establecer la necesidad de experiencia en software libre como
+condición de solvencia técnica.
+
+Por muchas condiciones que se pongan en el contrato, si la empresa
+adjudicataria no tiene experiencia participando en proyectos de software
+libre, lo más probable es que el producto acabe no siguiendo muchas de sus
+convenciones. En la mayoría de casos eso no tiene por qué ser resultado de
+una mala disposición, sino fruto del desconocimiento.
+--
+
+[sidebar.alternative, id="{sect}.{counter:measure:A}"]
+.Hacer un contrato secundario de validación y verificación independiente (IV&V) 
+--
+[.tags]
+* Contratar
+* Adaptación
+* Plugin
+* NuevoProducto
+
+
+Hay que contratar a alguna entidad que sí tenga experiencia demostrable en
+la participación de manera sostenida en proyectos de software libre. Esta
+entidad actuará como colaborador externo del proyecto y hará revisiones de
+código y análisis de procesos, reportando directamente al IMI.
+
+En un proyecto de software libre, lo que se está contratando no es solo el
+código, sino también el proceso.
+
+Hay que añadir este servicio a la oficina técnica del proyecto.
+--
+
+[sidebar.alternative, id="{sect}.{counter:measure:A}"]
+.Incluir como criterio de adjudicación la experiencia en proyectos de código abierto 
+--
+[.tags]
+* Contratar
+* Adaptación
+* Plugin
+* NuevoProducto
+
+
+Hay que adjudicar un determinado número de puntos a las empresas que
+acrediten experiencia en proyectos en los que se ha producido software.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Pedir a los concursantes que acrediten experiencia en proyectos de software libre de los participantes 
+--
+[.tags]
+* Contratar
+* Adaptación
+* Plugin
+* NuevoProducto
+
+Tienen que hacerlo aportando referencias a su participación individual en
+repositorios y foros públicos (StackOverflow, etcétera) de los proyectos en
+los que hayan participado.
+
+Se puede hacer constar esta demanda como criterio de solvencia técnica o
+como criterio de ejecución.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Partir el proyecto en grupos de funcionalidad que se puedan licitar en diferentes lotes 
+--
+[.tags]
+* Contratar
+* NuevoProducto
+
+Ya sea contratando por lotes o externalizando tareas concretas como la
+revisión de código y del despliegue, como establece la alternativa
+link:#fer-contracte-validacio-independent[“Hacer un contrato secundario de
+validación y verificación (V&V) independiente”].
+
+Además de ser una política alineada con la Guía de contratación tecnológica,
+es muy favorable para los intereses del proyecto diseminar el conocimiento
+sobre el producto. Las reservas de conocimiento distribuidas son una de las
+principales fortalezas de los proyectos de software libre.
+
+También ayuda mucho a que desde el principio del desarrollo se establezcan
+procesos de trabajo colaborativo.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Reducir los requerimientos de estabilidad financiera de las ofertas
+--
+[.tags]
+* Contratar
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+
+Se trata de suavizar los criterios de solvencia financiera exigidos. El
+objetivo es no poner impedimentos artificiales que puedan impedir
+presentarse al concurso a empresas y cooperativas pequeñas y medianas que
+cumplan en solvencia técnica e incluso superen a las grandes empresas en
+ello.
+
+Como se explica en la página 47 de Join up: Guideline on public procurement
+of Open Source Software
+<document/guideline-public-procurement-open-source-software> (documento
+encargado por la Comisión Europea), la mayor interoperabilidad e
+independencia de proveedores cuando se trabaja en software libre incrementa
+la sostenibilidad de los proyectos sin necesidad de unos requerimientos
+financieros muy elevados.
+--
+
+
+== Difusión del proyecto
+
+:!measure:
+:sect: 3.3
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Escoger un buen nombre para el proyecto 
+--
+[.tags]
+* NuevoProducto
+* Publicación
+
+Esto es más importante en proyectos de software libre que en proyectos
+tradicionales, porque adquirir usuarios y desarrolladores fuera de los
+confines del Ayuntamiento puede determinar el grado de éxito del proyecto.
+
+Se pueden encontrar indicaciones más concretas en
+http://producingoss.com/es/getting-started.html#choosing-a-name.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Adquirir el nombre en los espacios de internet importantes
+--
+[.tags]
+* NuevoProducto
+* Publicación
+
+Para proyectos grandes, es recomendable pensar desde el principio en qué
+sitios y plataformas de internet se deberá tener presencia y asegurar la
+disponibilidad de los dominios o nombres de usuario correspondientes. Además
+de uno o más dominios ICANN propios, puede ser que un proyecto quiera tener
+presencia en GitHub o Twitter, por ejemplo. Utilizar en todas partes el
+mismo nombre de usuario facilita la identificación del proyecto por parte de
+personas que todavía no están demasiado involucradas.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Redactar una declaración de propósito clara y ponerla en sitios destacados
+--
+[.tags]
+* Integración
+* NuevoProducto
+* Publicación
+
+La declaración de propósito es un texto corto, de uno o dos párrafos, que
+permite a los lectores decidir en 30 segundos si les interesa seguir leyendo
+sobre el proyecto o no. Debe ir acompañada de los enlaces necesarios por si
+se quiere seguir leyendo. En el redactado se puede dar por supuestos unos
+conocimientos mínimos del área de aplicación del proyecto. Las personas que
+no dispongan de estos conocimientos probablemente no estarán interesadas en
+el proyecto.
+
+El texto debe estar redactado como mínimo en inglés y en catalán, para
+utilizar la versión que convenga en cada caso.
+
+Debe aparecer como mínimo en los siguientes sitios:
+
+* La página de inicio de la web orientada a usuarios del proyecto, en caso de
+  tenerla. Se tiene que poder ver sin necesidad de hacer scroll en un
+  ordenador de sobremesa.
+* El fichero README del repositorio principal.
+* El listado de proyectos en
+  https://ajuntamentdebarcelona.github.io/[https://ajuntamentdebarcelona.github.io].
+* Cada vez que el proyecto se introduce en un repositorio o listado de
+  proyectos de software libre, por ejemplo, el
+  https://joinup.ec.europa.eu/[Join up de la Unión Europea].
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Especificar en sitios destacados que el proyecto es libre
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+Esta medida facilita que los potenciales colaboradores no tengan que buscar
+demasiado para saber si estarán dispuestos a contribuir o no en el
+proyecto. Es importante, además, indicar bajo qué licencia concreta se
+distribuye el software (incluyendo la versión), utilizando el nombre
+completo o bien el identificador, lo que más convenga en cada caso,
+exactamente como aparecen en https://spdx.org/licenses/.Especificar la
+licencia como mínimo en los siguientes sitios:
+
+* La página de inicio de la web orientada a usuarios del proyecto, en caso de
+  tenerla. Se tiene que poder ver sin necesidad de hacer scroll en un
+  ordenador de sobremesa.
+* El fichero README del repositorio principal.
+* El listado de proyectos en
+  https://ajuntamentdebarcelona.github.io/[https://ajuntamentdebarcelona.github.io].
+* Cada vez que el proyecto se introduce en un repositorio o listado de
+  proyectos de software libre, por ejemplo, el
+  https://joinup.ec.europa.eu/[Join up de la Unión Europea].
+
+En cuanto a la web orientada a usuarios del proyecto, es importante no
+relegar esta información a una página de "descargas" o de "desarrollo" que
+requiera más de un clic.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Especificar en sitios fácilmente accesibles un listado de funcionalidades 
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+Sirve para que las personas acaben de decidir si el proyecto puede cubrir o
+no sus necesidades.
+
+Debe enlazarse de forma visible como mínimo desde los siguientes elementos:
+
+* La página de inicio de la web orientada a usuarios del proyecto, en caso de
+  tenerla. El enlace se tiene que poder ver sin necesidad de hacer scroll en
+  un ordenador de sobremesa.
+* El fichero README del repositorio principal.
+
+Es mejor en forma de listado con viñetas y frases simples, o de una manera
+todavía más gráfica. Muchas veces es una especie de extensión de la
+declaración de propósito.
+
+Si una funcionalidad todavía no está implementada se puede especificar entre
+paréntesis _planned_ o _work-in-progress_.
+
+
+Como se explica con más detalle en la medida M, “especificar y mantener una
+página con el estado de desarrollo del proyecto” no tiene sentido, y, de
+hecho, puede ser muy contraproducente falsear o exagerar los verdaderos
+méritos técnicos del producto.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Especificar en sitios fácilmente accesibles los principales requerimientos técnicos 
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+Por ejemplo, qué arquitectura hardware o software se necesita para
+instalarlo, qué sistema operativo, etcétera. También es una información
+necesaria para que los usuarios potenciales averigüen si pueden utilizar la
+solución o no.
+
+Debe enlazarse de forma visible como mínimo desde los siguientes elementos:
+
+* La página de inicio de la web orientada a usuarios del proyecto, en caso de
+  tenerla. El enlace se tiene que poder ver sin necesidad de hacer scroll en
+  un ordenador de sobremesa.
+* El fichero README del repositorio principal.
+
+Es mejor en forma de listado con viñetas y frases simples.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Especificar en sitios fácilmente accesibles las diferencias con productos similares 
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+Se recomienda destacar sobre todo las ventajas respecto a las herramientas
+más conocidas y bien establecidas, libres o propietarias, pero no esconder
+las limitaciones.
+
+También es recomendable enlazar de forma visible desde la web orientada a
+usuarios del proyecto, en caso de tenerla. Las diferencias estrictamente
+técnicas también se pueden enlazar desde la web de desarrollo.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Especificar y mantener una página con el estado de desarrollo del proyecto 
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+Se trata de escribir un listado, que se va actualizando periódicamente en
+cada release o hito importante, que contenga lo siguiente:
+
+* Los releases anteriores, con la fecha de publicación y los principales
+  cambios que se introdujeron.
+* Futuros releases o hitos del proyecto con fecha tentativa de realización, a
+  modo de hoja de ruta muy esquemática.
+
+El objetivo de esta página es contribuir a visibilizar tres cosas:
+
+* Qué hitos se han alcanzado ya.
+* Hacia dónde se dirige el proyecto y cuán lejos se encuentran los hitos que
+  se espera alcanzar.
+* Cuán activos están el proyecto y su comunidad, y cuán bien mantenido está el
+  código.
+
+Enlazar como mínimo desde los siguientes elementos:
+
+* La web orientada a usuarios del proyecto.
+* El fichero README del repositorio principal.
+
+Es muy importante ser transparentes y no falsear el estado real del
+proyecto. Es más pernicioso atraer usuarios con expectativas que no se
+podrán cumplir que pecar de conservadurismo a la hora de exponer el progreso
+realizado o esperado. Todos los proyectos tienen defectos y facilita el
+trabajo de todos (desarrolladores, promotores del proyecto y potenciales
+usuarios externos) tratarlos con transparencia. Muchos proyectos de software
+libre exitosos contienen en su página un apartado titulado “Known bugs”
+(errores conocidos), y algunos de estos defectos permanecen allí durante
+años.
+
+Además, en el caso del software libre, todo el código y todo el proceso de
+desarrollo están a la vista de todo el mundo, y todo el mundo puede instalar
+y probar el producto. Cualquiera puede refutar nuestras afirmaciones si no
+son ciertas, como se explica en
+http://producingoss.com/es/marketing.html#goldfish-bowl.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Establecer medidas para visibilizar mejor el progreso y el grado de actividad del proyecto
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+Se pueden poner indicadores y alimentadores automáticos en la página de
+inicio de las webs (tanto en la de usuarios como en la de desarrollo), o en
+otros lugares, con informaciones que provengan, por ejemplo, de los
+siguientes espacios
+
+* El repositorio, por ejemplo, los últimos mensajes de commit.
+* El sistema de integración continua, por ejemplo, qué builds o conjuntos de
+  test han funcionado o fallado últimamente.
+* El sistema de notificación de incidencias o defectos.
+* Twitter del proyecto o de usuarios de la aplicación.
+
+También se puede mostrar de manera gráfica una especie de calendario de
+progreso con las diferentes versiones.
+
+Se puede tomar como modelo la manera que muestra la información de
+https://launchpad.net/inkscape[proyectos de ejemplo el Launchpad de Ubuntu].
+
+El objetivo es fortalecer y hacer más visual todo lo mencionado en la medida
+#h:a22a9688-f8e2-473d-baf5-8989693a41c1[“Especificar y mantener una página
+con el estado de desarrollo del proyecto]”.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Negociar a priori la manera de hacer visibles las aportaciones patrocinadas por el Ayuntamiento
+--
+[.tags]
+* Adaptación
+* Plugin
+
+Al Ayuntamiento de Barcelona le puede interesar que los proyectos de
+software que no han sido iniciados por el Ayuntamiento, pero en los que
+realiza contribuciones de cualquier tipo (extensiones, traducciones, horas
+de trabajo de mantenimiento), reconozcan y den publicidad a estas
+contribuciones. La manera en que eso se concrete dependerá de cada proyecto
+y de la naturaleza de las aportaciones. Algunos ejemplos pueden ser los
+siguientes:
+
+* Mención en una lista pública de entidades que participan en el proyecto o
+  contribuyen a este.
+* Aparición del logo del Ayuntamiento en la web del proyecto.
+
+Es conveniente, antes de iniciar la colaboración, hablar con la comunidad de
+desarrollo del proyecto sobre qué reconocimiento desearía obtener el
+Ayuntamiento en cada caso.
+--
+
+
+== Parametrización, configuración e instalación
+
+:!measure:
+:sect: 3.4
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Obligar a los adjudicatarios a parametrizar el producto usando ficheros de configuración
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+No hay que utilizar valores mágicos en el código.
+
+La parametritzación, tanto del proceso de build como de la ejecución, se
+tiene que poder realizar a través de ficheros de configuración, hasta hay
+otros métodos (por ejemplo, opciones de línea de comandos). Estos ficheros
+de configuración se tienen que mantener en un repositorio privado diferente.
+
+Esto hace más sencilla la reutilización del código. Es incorrecto poner la
+configuración:
+
+* Fijada estáticamente al propio código.
+
+* En ficheros guardados al mismo repositorio que el código.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Implementar y documentar procedimientos de build e instalación con herramientas libres y de uso extendido 
+--
+[.tags]
+* Día1
+* Plugin
+* NuevoProducto
+* Publicación
+
+Es muy importante no esperar para construir y documentar un sistema de build
+del software, ya que, sin ello, el esfuerzo que deberá realizar cualquier
+desarrollador para probar la herramienta será probablemente demasiado alto
+como para que nadie lo intente.
+
+La documentación tiene que ser suficiente para que un tercero entienda como
+configurar y desplegar el producto. Las organizaciones adjudicatorias de
+contratos tienen que entender que no tendrán el monopolio de la
+configuración, despliegue y mantenimiento del producto.
+
+Por supuesto, no se puede obligar a los usuarios y potenciales colaboradores
+de un proyecto de software libre a depender de herramientas que no sean al
+mismo tiempo libres, y, dentro de estas, conviene escoger las de uso más
+extendido y que resulten más familiares para la mayoría de
+desarrolladores. Esto último puede variar de una comunidad a otra. Algunos
+ejemplos de herramientas de _build_ (algunas también sirven para los
+procedimientos de configuración e instalación) de uso común y que
+recomendamos son las siguientes:
+
+* Para proyectos Java: Maven, Ant (también sirve para otros lenguajes).
+* Para proyectos Python recomendamos seguir los consejos de
+  http://python-packaging.readthedocs.io/en/latest/index.html, que incluyen
+  también información sobre empaquetado.
+* Para proyectos JavaScript (y para front-end en general): Gulp.js.
+* Para proyectos Ruby: Rake.
+* Uso general: CMake, Nix.
+--
+
+
+== Empaquetado y despliegue
+
+:!measure:
+:sect: 3.5
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Obligar al adjudicatario que hace el despliegue a usar el mismo código publicado en el repositorio principal
+--
+[.tags]
+* Contratar
+* Adaptación
+* Plugin
+* NuevoProducto
+
+Como condición de transparencia, el código fuente que en cada momento se
+utiliza para construir (build) y desplegar los servicios en producción debe
+estar disponible en el repositorio público del Ayuntamiento, preferentemente
+bajo la rama master. Cualquier patch de seguridad, mejora o modificación de
+cualquier tipo que se aplique al código en producción debe reflejarse en el
+repositorio.
+
+El código disponible en el repositorio público es el que está cubierto
+totalmente por una licencia libre. No se puede hacer ningún añadido.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Establecer una política de versiones explícita en el fichero ' ' README``
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+Es conveniente que cada repositorio tenga una política de versiones
+explícita. Los proyectos de software utilizan normalmente identificadores de
+versiones basados en secuencias de números del estilo `MAJOR.MINOR.PATCH`.
+
+Hay que escoger una política de versiones adecuada a cada proyecto. Cada
+comunidad tecnológica (Java, Python, Drupal, etcétera) puede tener una
+política de versiones preferente, y es aconsejable informarse de cuál es y
+adherirse a ella. En caso de que no haya una política clara, nos podemos
+adherir a una política genérica y bien conocida, como
+http://semver/[Semantic Versioning].
+--
+
+== Uso de formatos y estándares abiertos
+
+:!measure:
+:sect: 3.6
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Comprobar que la interfaz de usuario cumple con los estándares del W3C, en caso de aplicaciones web 
+--
+[.tags]
+* Plugin
+* NuevoProducto
+
+Las interfaces web de usuario, tanto las de uso para los ciudadanos como las
+de administración y uso interno, deben cumplir con los estándares del World
+Wide Web Consortium (W3C) y no tienen que requerir el uso de funcionalidades
+proporcionadas por extensiones propietarias de los navegadores Gecko
+(Firefox), WebKit/Blink (Chrome, Safari, Konqueror) o Trident/EdgeHTML
+(Microsoft).
+
+La presentación se tiene que visualizar correctamente, y el producto debe
+ser plenamente funcional, con los navegadores de la familia:
+
+* Gecko (Firefox)
+* WebKit/Blink (Chrome, Safari, Konqueror)
+* Trident/EdgeHTML (Microsoft)
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Utilizar formatos abiertos en el intercambio de documentos con los ciudadanos y con otros sistemas 
+--
+[.tags]
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+
+Todo el intercambio de documentos con los ciudadanos que implique la
+descarga o carga de ficheros debe producirse exclusivamente con formatos
+abiertos, según la definición que ofrece la
+xref:en/tech-sovereignty:interoperability.adoc[Guía de compra tecnológica]
+del Ayuntamiento de Barcelona.
+
+Para documentos de texto, hojas de cálculo y presentaciones, los siguientes
+formatos son aceptables:
+
+* Formatos basados en texto sin formato que tienen una implementación estable
+  y gratuita disponible (para generación, edición y análisis) en todas las
+  plataformas de TI principales, incluyendo GNU / Linux.
+* OpenDocument format, https://www.oasis-open.org/[].
+* archivos PDF.
+
+Rechazamos los formatos propietarios de Microsoft Office e iWork de Apple
+(`.doc [x]`, `.ppt [x]`, etc.)
+
+Imágenes, audio y vídeo también se realizará mediante formatos abiertos para
+los que existan implementaciones libres en las principales plataformas
+informáticas, incluyendo GNU/Linux.
+
+[.exception]
+****
+Una excepción temporal a esta regla se justifica si necesitamos intercambiar
+información con un servicio existente actualmente usado en el IMI que solo
+acepta algún formato no abierto.
+****
+--
+
+
+== Internacionalización
+
+:!measure:
+:sect: 3.7
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Definir y presupuestar los requerimientos técnicos para que el producto pueda ser traducido e internacionalizado 
+--
+[.tags]
+* Contratar
+* Adaptación
+* Plugin
+* NuevoProducto
+
+Todos los mensajes mostrados a los usuarios tienen que estar
+internacionalizados. Deben utilizarse los mecanismos habituales en cada
+lenguaje y plataforma.
+
+La herramienta estándar para mensajes mulilíngue en proyectos de software
+libre es https://www.gnu.org/software/gettext/[`gettext`].
+--
+
+
+== Apertura de un código inicialmente cerrado
+
+:!measure:
+:sect: 3.8
+
+El Ayuntamiento es propietario de los derechos de autor de mucho código que
+no se proporcionó bajo una licéncia de software libre y, por lo tanto, es un
+software propietario.
+
+Esta sección aborda aquellos problemas que afectan específicamente a la
+publicación bajo una licencia libre de componentes de software que no se
+entregaron como software libre, y que en la mayoría de los casos se
+desarrollaron sin prever una distribución pública.
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Juzgar la conveniencia o no de publicar un código en poder del Ayuntamiento 
+--
+[.tags]
+* Publicación
+
+Antes de publicar bajo licencia libre un componente o sistema de software ya
+existente y en uso en el Ayuntamiento de Barcelona hay que comprobar lo
+siguiente:
+
+* Corresponde a una necesidad general: puede ser de utilidad para más
+  instituciones u organizaciones, además del Ayuntamiento.
+* Tiene algún aspecto que lo diferencia favorablemente de otras soluciones
+  libres existentes.
+* El Ayuntamiento de Barcelona es titular legal de todo el código que se
+  pretende liberar, o puede hacer gestiones para obtener esta titularidad.
+* Se puede ejecutar sobre plataformas libres.
+* El código y la documentación asociada tienen la calidad y la madurez
+  suficientes, o bien los requerimientos de mejora están claramente
+  identificados y existe una estrategia para abordarlos.
+* La apertura de la solución no supondrá riesgos legales para ninguna parte.
+* Se dispone de los recursos para responder a incidencias de mantenimiento
+  mientras no se traspase esta responsabilidad a otras entidades, posiblemente
+  una comunidad de desarrolladores y usuarios.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Buscar en el repositorio de código información sensible o configuraciones de usuario 
+--
+[.tags]
+* Publicación
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Avisar en los nuevos espacios públicos orientados a desarrolladores de que este era un proyecto cerrado 
+--
+[.tags]
+* Publicación
+
+Se trata de explicar que el proyecto ha funcionado hasta un determinado
+momento como un proyecto cerrado y, por lo tanto, pueden esperarse ciertas
+inconveniencias. Conviene reducir las expectativas de los nuevos usuarios y
+desarrolladores en cuanto a calidad y transparencia de algunos elementos del
+proyecto. Deben explicarse los compromisos a los que se ha tenido que llegar
+para hacer posible la apertura. Por ejemplo, es posible que en el
+repositorio de código haya muchos datos sensibles (datos de usuarios
+concretos, etcétera) y que se haya optado por perder el historial del
+control de versiones y crear un repositorio nuevo top-skim que solo contenga
+la última versión.
+
+Esta información conviene que sea publicada como mínimo en los siguientes
+espacios:
+
+* La web de desarrollo (ahora pública).
+* Listas de correo públicas.
+
+El objetivo de esta medida es evitar un alud de peticiones inasumibles.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Avisar a los desarrolladores de las posibles consecuencias de la inminente apertura del proyecto 
+--
+[.tags]
+* Publicación
+
+Si tenemos alguna manera —por ejemplo, mediante listas de correo privadas—
+de acceder a las personas que han participado o que participan en un
+proyecto que vamos a publicar, es conveniente notificar este hecho. El hecho
+de publicar un código que no se escribió desde el principio para ser
+software libre puede provocar incomodidad a sus autores, y hay que explicar
+que se trata de algo normal. Se puede referir el siguiente trabajo para
+ayudar a aclarar la situación:
+http://producingoss.com/en/opening-closed-projects.html.
+--

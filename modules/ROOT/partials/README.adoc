@@ -9,36 +9,34 @@
 // MANDATORY. A language label supported by Asciidoctor,
 // https://asciidoctor.org/docs/user-manual/#customizing-labels, e.g.,
 // en, es, or ca.
-:lang:
+:lang: es
 //
 // MANDATORY. Numeric revision in X.Y.Z format, where X, Y and Z are numbers,
 // and Z is optional.
-:revnumber: 0.1
+:revnumber: 0.2
 //
 // MANDATORY. URL pointing to a Git repository with the source code of the
 // document. Something like 'https://github.com/USERNAME/REPONAME'.
-:uri-public-repo:
+:uri-public-repo: https://github.com/AjuntamentdeBarcelona/free-soft-bcn-es
 //
-// MANDATORY. Usually
-// {uri-public-website-root}/{lang}/COMPONENT_NAME/, where COMPONENT_NAME is
-// defined in file antora.yml in this repo.
-:uri-public-website:
+// MANDATORY. Exactly the same value you give to key "name" in file antora.yml.
+:component-name: es/free-soft
 //
 // MANDATORY. Title of the document. In web format, it appears as a heading of
 // level 1. In PDF format, it appears in a title page.
-:_title:
+:_title: Guía de gestión de software libre
 //
 // OPTIONAL. Subtitle of the document.
 :_subtitle:
 //
 // MANDATORY. Semi-colon-separated list of names.
-:authors:
+:authors: Guillem Marpons
 //
 // OPTIONAL. Semi-colon-separated list of names.
 :_contributors:
 //
 // OPTIONAL. Semi-colon-separated list of names.
-:_reviewers:
+:_reviewers: Richard Stallman, Roberto Di Cosmo, Javier Ruiz, Boris van Hoytema
 //
 // OPTIONAL. Publication date of the revision. When the default value
 // ("{docdate}") is used, the current date in format YYYY-MM-DD is automatically
@@ -47,12 +45,12 @@
 :revdate: {docdate}
 //
 // MANDATORY. Short summary of the contents of the document.
-:_summary:
+:_summary: Una sèrie de mesures i recomanacions per ajudar el personal de l'Institut Municipal d'Informàtica (IMI) en el seu treball diari en projectes basats en programari lliure. Cobreix aspectes tècnics, socials i legals de la contractació, ús i producció de programari lliure.
 //
 // MANDATORY. Comma-separated list of terms to help classifying and searching
 // the document. In web format, this terms are integrated as SEO enabling
 // metadata. In PDF format, they are shown near the other metadata.
-:keywords: ethical digital standards, technology rights, barcelona, city council
+:keywords: estándares éticos digitales, derechos digitales, barcelona, ayuntamiento de barcelona, sobiranía tecnológica, software libre, código abierto, floss, foss
 //
 // MANDATORY. Document's history.
 :_dochistory:
@@ -63,19 +61,17 @@
 :_citation: {authors}, {docyear}, {_title}
 //
 // MANDATORY. Copyright owner.
-:_copyleft: Barcelona City Council and the authors of the text
+:_copyleft: Ayuntamiento de Barcelona y los autores de este texto
 //
 // MANDATORY. Legal terms under which this document can be distributed and/or
 // modified. It's usually not necessary to modify the default contents of this
 // field.
-:_license: Creative Commons Attribution-ShareAlike 4.0 International (CC-BY-SA-4.0)
+:_license: Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional (CC-BY-SA-4.0)
 //
 // DO NOT TOUCH.
 :page-lang: {lang}
+:uri-public-website: {uri-public-website-root}/{lang}/{component-name}/
 // end::metadata[]
-
-
-// tag::metadata-table[]
 
 = {_title}
 

@@ -1,0 +1,127 @@
+= Introducción
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+include::{partialsdir}/README.adoc[tag=metadata]
+
+El Ayuntamiento de Barcelona dispone de una política de uso y desarrollo de
+software libre establecida en la
+http://ajuntament.barcelona.cat/digital/ca/documentacio[Medida de gobierno
+para la digitalización abierta: software libre y desarrollo ágil de
+servicios en la Administración pública], de octubre del 2017.
+
+Esta política consta de una serie de principios y directrices que se exponen
+en los siguientes documentos, anexos a la medida:
+
+* xref:{lang}/tech-practices:ROOT:aim-and-scope.adoc[Código de prácticas
+  tecnológicas]
+* xref:{lang}/tech-sovereignty:ROOT:introduction.adoc[Guía sobre soberanía
+  tecnológica]
+* xref:{lang}/ict-procurement:ROOT:context.adoc[Guía de compra pública de TIC]
+
+El presente documento concreta estos principios y directrices en un conjunto
+de medidas y recomendaciones que deben guiar al personal del Instituto
+Municipal de Informática (IMI) en la gestión diaria de proyectos basados en
+software libre, en aspectos como los siguientes:
+
+* La búsqueda y diseño de soluciones
+* La contratación de servicios
+* El desarrollo, implantación y mantenimiento de sistemas de información
+* La participación en comunidades de software libre
+
+== Beneficios al utilizar y desarrollar soluciones IT libres
+
+La principal ventaja que se espera al utilizar y desarrollar software libre
+es que el Ayuntamiento recupere o mantinga el control de su informática, sin
+cederla a manos privadas. Es crucial para una entidad que implemente
+servicios públicos y procese mucha información acerca los ciudadanos poder
+conocer con exactitud qué se está ejecutando, en que ordenadores, que tiene
+acceso a los datos, etc. Como dice en https://www.gnu.org [Proyecto GNU]:
+
+[quote, "Richard Stallman", "Medidas que los gobiernos pueden usar para promover el software libre"]
+El estado tiene que insistir en el software libre en su propia informàtica
+para el bién de su soberanía tecnológica (el control del estado sobre su
+propia computación). Todos los usuarios merecen el control de su
+informática, pero el estado tiene la responsabilidad de mantener el control
+sobre la computación que hace en nombre de la ciudadanía. La mayoria de sus
+actividades governamentales ahora dependen de la informática, y su control
+sobre estas actividades depende de su control sobre esta computación. La
+pérdida de este control en una agéncia la misión de la qual es crítica
+soscava la seguridad nacional.
+
+Tanto el documento de GNU anterior como la
+https://ajuntament.barcelona.cat/digital/es/blog/barcelona-digital-government-open-agile-and-participatives.cat[Medida
+de gobierno: software libre y desarrollo ágil de servicios de administración
+pública] previenen otras vantajas:
+
+* Fomento de negocios locales de soporte y mantenimiento de software,
+  facilitando la inclusión de pequeñas y medianas empresas en el proceso de
+  contractación.
+* Creación de nuevas capacidades cruciales en el sector público a través de la
+  internalitzación del personal y un programa para crear habilitats internos
+  para impulsar la transformación.
+* Incremento de la transparéncia y auditabilidad de los procesos
+  administrativos
+* No obligar a ninguna persona o organitzación que necesite interactuar con el
+  Ayuntamiento a utilizar un programa específico (esto equivaldría a un
+  monopolio sancionado por el Estado).
+* Garantía de la soberanía de datos, la privacidad y la seguridad, de la
+  ciudadanía y del municipio.
+* Evitar la dependéncia de proveedores únicos (_vendor_lock-in_) y, de forma
+  más general, liberar la planificación y las decisiones sobre informática de
+  las estratégias comerciales, construyendo soluciones más adaptadas, más
+  flexibles y sostenibles.
+* Ahorro de dinero, evitando pagar para las licéncias y compartiendo y
+  mancomunando recursos entre municipios y con otras agéncias governamentales.
+
+== Objetivos de esta guía
+
+Esta guía tiene un doble objetivo:
+
+. Facilitar al personal del IMI un uso efectivo de tecnologías basadas en
+  software libre, de manera que se aprovechen al máximo sus ventajas y se
+  minimicen los potenciales riesgos.
+
+. Preservar la reputación del Ayuntamiento de Barcelona como institución que
+  colabora en proyectos de software libre de manera transparente, confiable y
+  teniendo en cuenta las mejores prácticas del sector.
+
+A pesar de la enorme diversidad existente entre los proyectos de software
+libre, con el tiempo han emergido una serie de prácticas que comparten la
+mayoría de proyectos y organizaciones que alcanzan un cierto éxito. Esto
+incluye aspectos tanto técnicos, como legales, como de gestión de
+proyectos. Algunas de estas prácticas podría decirse que son de adopción
+obligatoria, en el sentido de que las dinámicas de trabajo de los proyectos
+libres premian determinadas conductas y penalizan otras.
+
+Estas prácticas están orientadas a facilitar la máxima diversidad de
+participantes, muchas veces sin una coordinación centralizada, y a preservar
+al mismo tiempo la calidad del producto. En algunos casos pueden diferir
+sustancialmente de la forma de trabajar cuando se desarrolla sin voluntad de
+publicar el código. Por lo tanto, el proceso de aprendizaje y adaptación del
+IMI tendrá un coste, pero creemos que este se verá superado con creces por
+la mejora organizativa que supondrá —en simbiosis con la incorporación de
+metodologías ágiles—, además de todos los beneficios antes mencionados. Como
+indica Karl Fogel en _Producing Open Source Software_:
+
+Este documento codifica y adapta estas buenas prácticas al IMI, de modo que
+sirvan de guía en el proceso de aprendizaje y en la toma de decisiones.
+
+== Para saber más
+
+Un muy buen recurso para entender todos los aspectos técnicos, legales y
+sociales que rodean el desarrollo de software libre es el libro de Karl
+Fogel https://producingoss.com/es/index.html[Producing Open Source Software]
+(en la edición del 2017, solo disponible en soporte electrónico y de
+consulta libre por internet). En la elaboración de esta guía se han tenido
+en cuenta muchas de las recomendaciones recogidas en el libro.
+
+La guía contiene también una gran cantidad de recomendaciones que tienen que
+ver con la contratación de diferentes servicios. Un buen documento para
+entender las particularidades de la contratación de software libre desde la
+Administración pública es
+https://joinup.ec.europa.eu/document/guideline-public-procurement-open-source-software[Guideline
+on public procurement of Open Source Software], publicado en el 2010 por
+Rishab Aiyer Ghosh, Ruediger Glott, Patrice-Emmanuel Schmitz y Abdelkrim
+Boujraf, por encargo de la Comisión Europea bajo la iniciativa
+https://joinup.ec.europa.eu//[Join up].

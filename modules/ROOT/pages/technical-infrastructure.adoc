@@ -1,0 +1,781 @@
+= Infraestructura técnica
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+include::{partialsdir}/README.adoc[tag=metadata]
+
+La infraestructura técnica necesaria para alojar un proyecto de software
+libre consta típicamente de diferentes elementos y herramientas, muchas
+veces vinculadas entre sí de maneras complejas. En este capítulo
+recomendamos algunas herramientas y prácticas de uso común en el sector.
+
+Un principio general que se ve concretado en las medidas de este capítulo es
+que las personas que participan en un proyecto nunca se tienen que ver
+obligadas a instalar software privativo en sus máquinas.
+
+== Sitios web asociados al proyecto
+
+:!measure:
+:sect: 4.1
+
+Un proyecto de software puede tener típicamente dos tipos de sitio web:
+
+*Una web de desarrollo*, orientada a personas que contribuyen al proyecto con código o documentación técnica contratadas por el Ayuntamiento o no
+
+*Una web orientada a personas usuarias y participantes en general*.
+Eso incluye a personas o entidades que puedan querer instalar y usar el software fuera del Ayuntamiento, pero también a personas interesadas en el proyecto aunque no sean usuarias directas del software.
+En esta web se tiene que facilitar la participación en el proyecto e incentivarla con contribuciones menos (o nada) técnicas: financiación, documentación de usuario, test de pre-releases, difusión, traducciones, etcétera.
+
+Normalmente los dos tipos de contenido son necesarios, pero no siempre se
+requiere que se encuentren en dos sitios separados, con nombres de dominio
+diferentes. En cada proyecto que lidere, el Ayuntamiento tendrá que valorar
+hasta qué punto las necesidades y mentalidades de los dos conjuntos de
+personas son diferentes, y resulta, por lo tanto, imposible que un único
+modelo de web se adecue a los dos grupos.
+
+En el apartado <<Code Repositorio de código y control de versiones>> se
+explica cómo crear la web de desarrollo, que es la única que se necesita
+desde el principio. A medida que el proyecto crece, se puede valorar si se
+requiere también un sitio orientado a otros perfiles de participante.
+
+Lo que sí es interesante tener desde el principio es un nombre de dominio
+propio (o una URL permanente bajo algún dominio del Ayuntamiento), que, si
+es necesario, se pueda redirigir hacia donde se encuentre inicialmente la
+web del proyecto (posiblemente un sitio como GitHub).
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Reservar una URL permanente para el proyecto, y usarla siempre para hacer referencia a este 
+--
+[.tags]
+* Día1
+* Integración
+* Plugin
+* NuevoProducto
+* Publicación
+
+Se trata de que desde el principio el Ayuntamiento tenga bajo su control la
+URL que se utilizará para identificar el proyecto en internet. Aunque la web
+del proyecto se encuentre alojada en un sitio como GitHub, utilizar una
+redirección permitirá, por ejemplo si en el futuro se decide mover de sitio
+la web de desarrollo, mantener la misma dirección pública.
+
+Existen dos opciones:
+
+* Reservar una URL permanente bajo algún dominio propiedad del Ayuntamiento.
+
+* Comprar uno o más nombres de dominio para el proyecto.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Crear una web orientada a la participación no técnica, que se base en tecnologías libres 
+--
+[.tags]
+* Integración
+* Plugin
+* NuevoProducto
+* Publicación
+
+Esta web se puede crear en el momento que se considere oportuno, cuando el
+proyecto alcance un tamaño o proyección significativos.
+
+Puede ser una web multilingüe. Cada proyecto debe decidir a qué idiomas
+traducirla en función de qué públicos resulten prioritarios.
+
+Este sitio web tiene que incluir lo siguiente:
+
+* Un enlace a la web de descarga, con instrucciones sobre cómo instalar el
+  software. Este enlace tiene que estar bien visible en la portada.
+
+* Un apartado “Get involved” o “Community” donde se informa de las diferentes
+  maneras de involucrarse en el proyecto. También tiene que estar bien visible
+  en la portada.
+
+* Un enlace a la web de desarrollo. Este se puede encontrar en el apartado
+  “Community” o en la portada, por ejemplo, con un enlace denominado
+  “Developers” o bien un enlace del tipo “Fork on GitHub”.
+
+Existen muchas herramientas y frameworks de gestión de contenido y
+publicación de sitios web libres y de excelente calidad, de modo que no
+tendría que ser un problema encontrar uno que se ajuste a las necesidades
+del proyecto: Drupal, Wordpress (sin las extensiones privativas), y muchos
+más.
+--
+
+
+== Repositorio de código y control de versiones
+
+:!measure:
+:sect: 4.2
+
+Un elemento central de la web de desarrollo de un proyecto es un repositorio
+de código —público y bajo control de versiones— que sirva de base para
+centralizar las modificaciones que tienen que formar parte de cada nueva
+entrega (release) del producto.
+
+En el escenario `NuevoProducto` o `Plugin`, el Ayuntamiento tendrá que crear
+este repositorio. En el caso de una integración o adaptación, el
+Ayuntamiento tendrá su propia copia (clone o fork) del repositorio original
+(upstream), donde centralizará los trabajos correspondientes a las
+modificaciones de su interés. A este repositorio que crea el Ayuntamiento, y
+que sirve para realizar las entregas de un producto original o para
+centralizar las contribuciones a un proyecto externo, lo denominaremos
+repositorio principal. Pueden existir muchas otras copias públicas y
+privadas del código.
+
+[NOTE]
+====
+El Ayuntamiento está reconsiderando la plataforma que se utilizará para
+alojar cosas como los repositorios de código públicos o los gestores de
+incidéncias de cada proyecto. Los primeros proyectos de software libre del
+Ayuntamiento han utilizado GitHub, pero ahora queremos pasar a una
+plataforma que:
+
+* Sea software libre.
+* Nos otorgue control sobre la infrastuctura que utilizamos para desarrollar
+  software.
+
+Las numerosas referéncias a GitHub en las siguientes secciones serán
+sustituídas cuando se tome una decisión.
+
+Hace fatla tener en cuenta las ventajas de GitHub que se indiquen a
+continuación para escoger una alternativa. Cualquier alternativa tiene que
+ofrecer garantías similares cuanto a durabilidad y sostenibilidad. Una
+posibilidad viable es una instalación autogestionada de Gitlab. Hay un caso
+de uso reigido por la administración pública en Francia.
+====
+
+Como se indica en las medidas de más abajo, el repositorio principal se
+alojará en GitHub, un servicio que utiliza Git como sistema de control de
+versiones distribuido. El vocabulario y los conceptos fundamentales para
+entender su funcionamiento se puede encontrar en
+https://producingoss.com/en/vc.html#vc-vocabulary[Version Control
+Vocabulary].
+
+Hay muchas alternativas viables y razonables a GitHub, e incluso algunas
+alternativas viables a Git como software de control de versiones, pero
+GitHub ofrece bastantes ventajas como para ser la opción por defecto:
+
+* La mayoría de desarrolladores la conocen y no tienen que aprender nuevas
+  herramientas y procedimientos ad hoc para el proyecto.
+
+* Lanza el mensaje de que el proyecto está abierto a colaboración.
+
+* Ofrece una buena integración con el resto de infraestructura técnica y
+  social de un proyecto: gestión de incidencias, integración continua, canales
+  de comunicación para desarrollo, etcétera.
+
+* Permite también guardar y mostrar (parte de) la documentación de un
+  proyecto, que puede ser una wiki. La presentación de la información es lo
+  bastante agradable como para permitir emplear la construcción de una web
+  orientada a personas usuarias y participantes en general del proyecto.
+
+* Es la plataforma más utilizada por proyectos de software libre, da mucha
+  visibilidad.
+
+[WARNING]
+====
+*Inconveniente*: GitHub no es 100 % libre.
+
+A pesar de ser un servicio gratuito para un gran abanico de posibles usos,
+no todo el código de la infraestructura que hay detrás de GitHub es libre, y
+en última instancia se está estableciendo una dependencia con una empresa
+que no sabemos cómo evolucionará en el futuro. 
+====
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Crear el repositorio principal en el espacio GitHub del Ayuntamiento 
+--
+[.tags]
+* Día1
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+Se creará en GitHub un proyecto
+https://github.com/AjuntamentDeBarcelona/NOM-DEL-PROJECTE donde se publicará
+el código. El Ayuntamiento tiene creada dentro de GitHub una cuenta para la
+organización denominada ajuntamentdebarcelona; este será el propietario
+(owner) del repositorio.
+
+Eso no significa que no pueda haber réplicas (espejos) del repositorio o
+partes de este en otros sitios (espacios GitHub de otras organizaciones, de
+desarrolladores particulares, la página web de las empresas adjudicatarias
+de contratos públicos, etcétera).
+
+Se recomienda que el nombre del proyecto en GitHub sea todo en minúsculas y
+con las palabras que lo formen separadas por guiones. Por ejemplo:
+https://github.com/AjuntamentdeBarcelona/decidim-barcelona.
+
+El código tiene que estar presente en este sitio desde el inicio del
+proyecto, sin esperar a que haya releases públicas.
+--
+
+[sidebar.alternative, id="{sect}.{counter:measure:A}"]
+.Crear un repositorio público en un sitio diferente del GitHub del Ayuntamiento 
+--
+[.tags]
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+Puede haber motivos que hagan recomendable tener el repositorio principal
+(el vinculado al gestor de incidencias) en sitios como los siguientes:
+
+* El espacio GitHub de otra organización
+
+* BitBucket u otras plataformas similares.
+
+* Un portal Gitlab de alguna organización que participe en el desarrollo del
+  proyecto (o, en el futuro, un portal Gitlab del Ayuntamiento de Barcelona).
+
+Algunos de estos motivos pueden ser los siguientes:
+
+* Es un proyecto en el que intervienen más participantes del sector público, y
+  se crea un consorcio u organización ad hoc.
+
+* La empresa que desarrolla tiene un fuerte liderazgo sobre el proyecto, mayor
+  que el que pueda tener el Ayuntamiento, y quiere tener la infraestructura
+  básica bajo su control.
+
+Si se opta por esta alternativa, debe tenerse en cuenta lo siguiente:
+
+* No podemos renunciar a Git como sistema de control de versiones: es la
+  herramienta utilizada de manera mayoritaria hoy en día y todos los
+  desarrolladores la conocen, y facilita unas buenas prácticas de gestión de
+  proyectos colaborativos que con sistemas más antiguos (como CSV o
+  Subversion) resultan mucho más costosas. Si determinados procedimientos se
+  tienen que ejecutar necesariamente sobre otra herramienta, por ejemplo,
+  Subversion, la solución es hacer el desarrollo en abierto sobre Git y
+  mantener un espejo Subversion automatizado utilizando el comando `git`
+  `svn`` ``dcommit`, como se explica, por ejemplo, en
+  http://www.kerrybuckley.org/2009/10/06/maintaining-a-read-only-svn-mirror-of-a-git-repository/.
+
+* En cualquier caso, debe haber una réplica actualizada del repositorio
+  principal en el espacio GitHub del Ayuntamiento, para dar visibilidad a
+  todas las contribuciones en proyectos de software libre que realiza.
+
+* En el fichero README contenido, y mostrado, en el espacio GitHub del
+  Ayuntamiento, en el espacio GitHub.io y en el resto de sitios con enlace al
+  código fuente, se indicará cuál es el repositorio o repositorios principales
+  donde se lleva a cabo el desarrollo.
+
+* Estén donde estén, tanto la herramienta de gestión de incidencias como el
+  sistema de integración continua tienen que ser públicos y se deben poder
+  utilizar por parte de todo el mundo sin pagar suscripciones a ningún
+  servicio.
+
+* Todo el código fuente del proyecto tiene que ser descargable por cualquier
+  persona en todo momento. GitHub facilita esto proveyendo de botones para
+  descargar un archivo `zip` o bien mostrando los comandos necesarios para
+  clonar el repositorio utilizando Git. Si no se utiliza GitHub se tiene que
+  conseguir que el sitio público del repositorio facilite también estas dos
+  modalidades de descarga (archivo `zip` o `tar.gz` y comando `git clone`).
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Utilizar el repositorio de [.line-through]#GitHub# como la web de desarrollo del proyecto 
+--
+[.tags]
+* Día1
+* Plugin
+* NuevoProducto
+* Publicación
+
+La portada de la web será un fichero README en la raíz del repositorio. Este
+fichero puede estar en formato de texto plano, Markdown u otros lenguajes de
+marcas soportados por GitHub y que este interpreta y formatea cuando se
+visita la página.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Establecer permisos en el repositorio principal adecuados a cada tipo de participante 
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+* Documento
+
+
+GitHub tiene el concepto de propietario (owner) de un repositorio, que
+corresponderá a una cuenta que el Ayuntamiento tiene como organización
+(`ajuntamentdebarcelona`).
+
+Cualquier trabajador del IMI que tenga una cuenta personal en GitHub que
+forme parte de la organización ajuntamentdebarcelona tendrá permisos de
+administrador.
+
+Se pueden dar permisos de administrador del repositorio a personas del IMI
+y, opcionalmente, a una persona de cada entidad externa que participa en el
+desarrollo bajo contratos con el IMI.
+
+Submedidas:
+
+
+
+* Esto incluye tanto a personas internas como a personas
+  subcontratadas. Además, hacer pública la lista actual de _commiters_ en un
+  fichero en la raíz del repositorio denominado MAINTAINERS.. Debe contener el
+  nombre y dirección de correo electrónico de cada persona.
+
+
+
+* Dar permiso de lectura del repositorio principal a todo el mundo  Todo el
+  mundo tiene que poder leer y clonar el código.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Dar permiso de escritura en el repositorio principal a desarrolladores externos confiables 
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+Si una persona lleva mucho tiempo haciendo contribuciones de calidad al
+proyecto, a un nivel parecido al de las personas contratadas por el
+Ayuntamiento, se la puede premiar con un permiso para escribir en el
+repositorio. Se corre un riesgo bajo con ello, porque el control de
+versiones hace que todo sea trazable, y los cambios, reversibles.
+
+Debe aclararse, para evitar malentendidos, cuáles serán las reglas de
+gobernanza y quién seguirá teniendo la última palabra a la hora de aceptar
+contribuciones.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Integrar las contribuciones externas en el repositorio principal mediante el mecanismo de pull request 
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+Como cualquiera puede clonar el repositorio principal y hacer modificaciones
+en su copia, no se necesita dar permisos de escritura a nadie que no forme
+parte del equipo principal de desarrollo. Quienes quieran acabar integrando
+un conjunto de cambios en el producto nos tienen que hacer un pull request
+en GitHub.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Subir traducciones del fichero README al repositorio principal
+--
+[.tags]
+* NuevoProducto
+* Publicación
+
+Si los usuarios potenciales del proyecto son principalmente locales, puede
+ser conveniente traducir el contenido del fichero README o parte de él. Eso
+se puede hacer poniendo nuevos ficheros en la raíz del repositorio, con
+nombres como README.ca.md o README.es.md (suponiendo que el lenguaje de
+marcas utilizado sea Markdown; de aquí la extensión .md). En este caso,
+conviene enlazar todas estas traducciones entre ellas, al principio de cada
+fichero. Se puede ver un ejemplo en
+https://github.com/tiimgreen/github-cheat-sheet.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Especificar en el README una persona de contacto del proyecto 
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+* Documento
+
+Hay que incluir una dirección de correo electrónico.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Utilizar el inglés como idioma para todo el desarrollo 
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+
+Tienen que estar obligatoriamente en inglés 
+
+* Los comentarios que acompañan al propio código.
+
+* Cualquier documento en lo referente al diseño y la arquitectura del
+  producto.
+
+* Todos los comentarios de los commit en el repositorio
+
+* Todas las entradas al gestor de incidencias y los hilos de discusión que se
+  derivan
+
+* Los hilos de discusión que acompañan cada petición de aportación (pull
+  request)
+
+* El fichero README del repositorio principal.
+
+* El fichero INSTALL
+
+* El fichero CONTRIBUTING
+
+* El fichero CONTRIBUTORS
+
+* El fichero LICENSE
+
+En el caso del gestor de incidencias, si este permite introducirlas a
+cualquier persona y se introduce alguna en otro idioma, un miembro del
+equipo debe encargarse de traducirla, o bien solicitar al autor que la
+traduzca.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.No subir al repositorio ficheros binarios ni ficheros producto del proceso de build (con excepciones) 
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+[.exception]
+****
+Pequeñas imágenes (logos generales del proyecto, etcétera)
+****
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Mantener la información de configuración en ficheros separados y en un repositorio privado diferente 
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+Eso facilita la reutilización del código. Es incorrecto poner la
+configuración:
+
+Hardwired en el propio código (ver la ref: medida M_A69 <mesura_M_A69>).
+
+En ficheros de los que se hace commit en el mismo repositorio que contiene
+el código.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.No subir al repositorio información sensible de usuarios, del Ayuntamiento o de terceros 
+--
+[.tags]
+* Contratar
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+Como puede ser configuraciones, usuarios y contraseñas, claves públicas u
+otras credenciales reales usadas en el sistema en producción.
+
+En las condiciones de ejecución del contrato, hay que establecer
+penalizaciones (falta grave) si se infringe esta regla.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Resincronizar cada semana el repositorio propio con el repositorio del proyecto upstream 
+--
+[.tags]
+* Adaptación
+
+Para permitir finalmente integrar nuestros cambios, y que nuestras
+notificaciones de defectos tengan sentido.
+--
+
+
+== Gestor de incidencias
+
+:!measure:
+:sect: 4.3
+
+Una herramienta que todos los proyectos de software libre necesitan es un
+gestor de incidencias. En los proyectos del Ayuntamiento le asignaremos las
+siguientes funciones:
+
+* Notificar los defectos detectados (bug tracker) por parte tanto de usuarios
+  como de desarrolladores, así como hacer transparente el tratamiento,
+  evolución y eventual solución. Es importante que los commits que resuelven
+  un defecto lo señalen en su
+  mensaje.
+  https://help.github.com/articles/closing-issues-using-keywords/[GitHub tiene
+  una sintaxis especial para ello].
+
+* Hacer seguimiento de las tareas pendientes, lo que permite después vincular
+  uno o más commits con el cierre de una tarea. Asimismo, poder ver a quién se
+  asignan las tareas y cómo se priorizan. Opcionalmente, se pueden especificar
+  fechas estimadas de realización. Todo ello contribuye a la transparencia y
+  trazabilidad del proceso de desarrollo.
+
+* Hacer seguimiento de cómo se gestionan las contribuciones de diferentes
+  partes, mediante el mecanismo de pull request. Incluso se puede abrir el
+  gestor de incidencias a peticiones de funcionalidades (feature request) y se
+  puede utilizar el espacio de GitHub como sitio donde se priorizan y
+  gestionan de manera pública.
+
+Debe tenerse en cuenta que el gestor de incidencias no es solo importante
+para el día a día de los desarrolladores, sino que muchos observadores del
+proyecto también lo utilizan como medida para saber hasta qué punto están
+ante un proyecto serio.
+
+Este gestor de incidencias tiene que estar operativo y ser público durante
+toda la vida útil del producto, más allá de la duración que tengan los
+contratos con el Ayuntamiento.
+
+[sidebar.measure]
+.Vincular el repositorio principal al gestor de incidencias de GitHub 
+--
+[.tags]
+* Día1
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+
+Se tendrán que establecer desde el principio algunas categorías básicas de
+incidencia, que después pueden modificarse según las necesidades de cada
+proyecto: “Bug”, “Request”, etcétera.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Vincular el repositorio principal a un gestor de incidencias público
+--
+[.tags]
+* Día1
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+Si se utiliza esta alternativa, hay que tener en cuenta lo siguiente:
+
+* Necesariamente tiene que ser público, en el siguiente sentido:
+
+** Todo el mundo debe poder registrarse como usuario del sistema sin pagar
+   ninguna suscripción, y así participar en el desarrollo.
+
+** Todo el mundo debe poder visualizar las incidencias y hacer un seguimiento,
+   sin necesidad de registrarse como usuario.
+
+
+* Tiene que estar enlazado desde el fichero README del repositorio de código.
+
+* Si se quiere tener el gestor de incidencias en infraestructura propia del
+  Ayuntamiento, hay que utilizar una de las siguientes herramientas libres:
+  Gitlab, Redmine, Trac.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Utilizar al gestor de incidencias por tareas, entregas y nuevas funcionalidades
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+La integración entre el repositorio y el issue tracker de GitHub hace que,
+en combinación, sean una buena herramienta para colaborar en la realización
+de cualquier tarea relacionada con el código, y no solo la resolución de
+bugs.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Redactar y mantener una política de gestión de incidencias 
+--
+[.tags]
+* Contratar
+* Plugin
+* NuevoProducto
+* Publicación
+
+Tiene que especificar lo siguiente:
+
+* Tipo de incidencia (deficiencias, tareas, milestones, etcétera).
+
+* Etapas por las que pasan.
+
+Se le puede encargar esta tarea al adjudicatario. Si no tiene una propia, el
+IMI debería proporcionar una por defecto.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Dar permisos para reportar incidencias a todo el mundo, incluso anónimamente 
+--
+[.tags]
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+Configurar el gestor de incidencias a fin de que no sea imprescindible
+crearse una cuenta para hacer reportar deficiencias o cualquier otro
+elemento, para facilitar al máximo las aportaciones. Activar las medidas
+antispam que sean necesarias (por ejemplo, captchas).
+
+Se puede vetar a alguna persona que dé problemas o reconsiderar esta
+política si no funciona en un proyecto.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Establecer una persona encargada de filtrar las incidencias a medida que llegan
+--
+[.tags]
+* Contratar
+* Plugin
+* NuevoProducto
+* Publicación
+
+Se tiene que encargar de eliminar duplicados, spam, etcétera.
+
+Complementar esto con un aviso de que es necesario, primero, buscar
+duplicados y comprobar con otra persona, en privado, que el problema se
+reproduce en una segunda máquina.
+
+Presupuestar esta tarea si se hace bajo un contrato con una empresa o
+cooperativa.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Hacer la notificación de defectos en el bug tracker oficial del producto que modificar 
+--
+[.tags]
+* Contratar
+* Adaptación
+* Plugin
+
+Cuando estamos adaptando un producto existente, una de las mayores
+contribuciones que podemos hacer al proyecto es ayudar a detectar, aislar y
+solucionar las deficiencias que pueda tener.
+
+Hay que obligar por contrato a los adjudicatarios a tomarse la molestia de
+notificar correctamente las deficiencias, de acuerdo con las directrices de
+cada proyecto, para ayudar a mejorar el producto upstream.
+--
+
+
+== Infraestructura de integración y pruebas
+
+:!measure:
+:sect: 4.4
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Vincular el repositorio principal a un sistema de integración continua de software libre
+--
+[.tags]
+* Día1
+* Adaptación
+* Plugin
+* NuevoProducto
+* Publicación
+
+Utilice una herramienta de software gratuita que podamos ejecutar en nuestra
+propia infraestructura si es necesario. Recomendamos una de las siguientes
+herramientas:
+
+* Jenkins
+* Gitlab CI
+* Travis CI
+--
+
+
+== Canales de comunicación internos y externos
+
+:!measure:
+:sect: 4.5
+
+Los primeros canales de comunicación entre desarrolladores son los mensajes
+de commit del repositorio y los hilos del gestor de incidencias. Muchas
+decisiones técnicas se toman en estos hilos, pero es conveniente que las
+discusiones que se llevan a cabo estén siempre muy focalizadas y sean
+estrictamente técnicas. Cuando el ámbito de la discusión se amplía, hay que
+recurrir a otros canales.
+
+Todos los proyectos nuevos tienen que crear inicialmente una lista de correo
+o foro de discusión para desarrollo, con archivos públicos. En este canal es
+donde se pide la opinión a las diferentes partes o personas que participan
+en el proyecto, y donde se toman las decisiones estratégicas.
+
+Inicialmente habrá poca distancia en cuanto a inquietudes y lenguaje entre
+los desarrolladores y los primeros usuarios (early adopters), que suelen
+estar muy motivados. Por eso, en muchos casos podrán compartir el mismo
+canal. Más adelante puede ser necesario crear canales de comunicación
+especializados para los diferentes tipos de participante.
+
+Dependiendo de la naturaleza y composición del equipo, puede resultar
+conveniente disponer también de un chat que permita una comunicación más
+inmediata. De todos modos, el chat es complementario a la lista o foro,
+nunca los tiene que sustituir. La lista o foro es donde queda registrada de
+forma referenciable toda la historia del proyecto (debates, decisiones,
+etcétera), que constituye un activo muy valioso para toda la comunidad
+presente y futura del proyecto.
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Crear una lista o foro de desarrollo que inicialmente servirá también para usuarios 
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+Inicialmente el proyecto tendrá un solo foro de discusión que compartirán
+tanto las personas que realizan el desarrollo como aquellas que simplemente
+sean usuarias del producto (early adopters).
+
+Recomendamos utilizar la herramienta https://discourse.org/[Discourse], que
+fusiona las listas de correo tradicionales con un foro vía web. Hay que
+activar las opciones para que quien lo desee pueda hacer toda la interacción
+mediante correo electrónico. Un proyecto que utiliza esta herramienta y que
+está en pruebas en el Ayuntamiento es https://alvus.barcelona/[Alvus].
+
+Alternativamente, se puede utilizar Mailman 3. La lista se puede denominar
+`NOM-DEL-PROJECTE-``dev`.
+
+Activar el archivo y utilizarlo profusamente.
+
+Inicialmente, en catalán y/o castellano. Cuando aparezcan participantes en
+otros idiomas, se creará una lista en inglés.
+
+Los principales desarrolladores deben estar presentes, pero no tienen
+obligación de responder a todas las peticiones. En el foro o en la lista,
+cada uno interviene a título individual. El producto es más confiable si se
+puede contactar con las personas que hay detrás.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Crear una lista de correo para personas que usan el producto, si el proyecto crece 
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+Hay que activar el archivo.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Crear un chat de desarrollo para la comunicación inmediata del equipo 
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+Usar https://gitter.im/[gitter.im] o https://riot.im/[riot.im].
+--

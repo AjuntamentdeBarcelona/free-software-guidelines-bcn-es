@@ -3,21 +3,18 @@ include::{partialsdir}/README.adoc[tag=metadata]
 :doctitle: {_title}
 :page-layout: pdf
 :toc: macro
-:revdate: {localdatetime}
+:revdate: {localdate}
 
-// [.my-authors-class]
-Authors: {authors}
-
-[.my-revnumber-class]#v{revnumber}#, [.my-revdate-class]#{revdate}#
-
-
-[.page-second]
+[.pdf-authors-version]
 --
-[discrete.no-toc]
-=== Summary
+[.pdf-authors]
+_Authors_: {authors}.
 
-[abstract]
-{_summary}
+[.pdf-authors]
+_Reviewers_: {_reviewers}.
+
+[.pdf-version]
+v{revnumber}, {revdate}
 --
 
 :toclevels: 3
@@ -31,9 +28,21 @@ toc::[]
 
 :sectnums:
 
-// Numbered sections here
+include::introduction.adoc[]
 
-:!sectnums:
+include::document-organization.adoc[]
 
-[.discrete.page-end-notes]
-= End notes
+include::collaborative-development.adoc[]
+
+include::technical-infrastructure.adoc[]
+
+include::component-management.adoc[]
+
+include::communities.adoc[]
+
+include::legal-aspects.adoc[]
+
+include::documentation.adoc[]
+
+// [.discrete.page-end-notes]
+// = End notes

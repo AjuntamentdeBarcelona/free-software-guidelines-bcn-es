@@ -1,0 +1,506 @@
+= Comunidades de software libre
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+include::{partialsdir}/README.adoc[tag=metadata]
+
+En un proyecto de software libre hay muchos niveles de participación, y
+conviene no cerrarse a ninguno de ellos. Además del equipo principal de
+desarrollo, normalmente personas contratadas para este fin, puede haber
+colaboraciones puntuales o continuadas por parte de otras personas. Este
+capítulo se centra en los aspectos más sociales de cómo trabajar en el tipo
+de comunidad que se crea en torno a estos proyectos.
+
+
+== Contribuir en comunidades de software libre
+
+:!measure:
+:sect: 6.1
+
+El concepto de contribución va más allá del código. También puede consistir
+en lo siguiente:
+
+* Traducciones
+* Documentación
+* Notificación de deficiencias (bug report)
+* Otros
+
+Una norma básica es que las contribuciones son siempre individuales, tanto
+en nuestros proyectos como cuando contribuimos en proyectos externos. Eso
+quiere decir que se puede trazar siempre qué persona concreta la ha
+realizado, aunque trabaje o participe en nombre de alguna organización. Las
+razones de esto son varias:
+
+* Es la única entidad que los proyectos de software libre están
+  estructuralmente equipados para gestionar.
+
+* Dentro de los proyectos de software libre, la reputación es como la moneda
+  que hace funcionar toda la maquinaria, y esta se gana o se pierde de forma
+  individual. Según la solidez demostrada en contribuciones anteriores, se
+  confiará más o menos en el código que ha hecho una persona concreta, sus
+  opiniones en los canales de comunicación y toma de decisiones tendrán más o
+  menos peso, etcétera.
+
+* Los desarrolladores que trabajan habitualmente en proyectos de software
+  libre están acostumbrados a este modelo. Hace más sencillas las
+  interacciones cuando se colabora a distancia. También es de interés para
+  ellos para construirse una carrera profesional.
+
+La otra consideración importante en este apartado, aplicable si queremos
+modificar un componente externo ya existente, es que siempre es muy
+conveniente que nuestras modificaciones al código queden incorporadas, tarde
+o temprano, al producto original. Con eso conseguimos lo siguiente:
+
+* Reducir el coste futuro de mantenimiento. Si la integración es total, puede
+  ocurrir incluso que el mantenimiento de las funcionalidades integradas nos
+  salga a coste cero.
+
+* Beneficiarnos de futuras mejoras del producto original aportadas por otras
+  partes.
+
+Si más personas utilizan nuestra funcionalidad, el Ayuntamiento aparecerá
+como una institución que aporta al proyecto y al común global de las
+comunidades de software libre. Eso, a la larga, puede dar capacidad,
+prestigio e influencia.
+
+No obstante, hay que tener en cuenta que podemos planificar para facilitar
+esta integración, pero normalmente no podremos garantizar que se produzca en
+las etapas iniciales de un proyecto. Cada comunidad tiene sus reglas de
+gobernanza y toma de decisiones, y deben respetarse. Sin embargo, lo que sí
+es conveniente es informar en todo momento de nuestros planes e intentar que
+converjan con los de la comunidad a la que nos dirigimos:
+
+[quote, "Karl Fogel", "Hacer que la autoría de cada contribución "]
+No pienses en el escrutinio de la comunidad como un obstáculo que salvar,
+piensa en él como un equipo de diseño y un departamento de calidad a coste
+cero. El escrutinio y participación de la comunidad Es un beneficio que
+buscar agresivamente, no un obstáculo que soportar.
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Hacer que la autoría de cada contribución (código, documentación o mensaje) sea individual 
+--
+[.tags]
+* Adaptación
+* Plugin
+* NuevoProducto
+
+No hay que esconder las contribuciones del equipo, ni en un proyecto propio
+ni en uno externo, bajo una identidad corporativa. Es decir, tanto en los
+commits en el repositorio como cuando se participa en canales de
+comunicación del proyecto o en herramientas de gestión, deben utilizarse
+nombres de usuario y direcciones de correo individuales de cada persona
+participante.
+
+Si un mismo individuo contribuye a un proyecto de software a veces como
+trabajador contratado directa o indirectamente por el Ayuntamiento y otras
+veces como voluntario en su tiempo libre, tiene que utilizar dos direcciones
+de correo diferentes, según el caso:
+
+* Una personal, cuando haga contribuciones voluntarias.
+* Una de la empresa, o bien proporcionada por el Ayuntamiento, cuando cumpla
+  con tareas especificadas en su contrato.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Informar de nuestros planes a las comunidades técnicas del componente que modificar 
+--
+[.tags]
+* Adaptación
+
+Si lo que queremos es modificar y adaptar un componente ya existente, es
+necesario que seamos abiertos y claros respecto a nuestras
+motivaciones. Como el componente es de software libre, no nos pueden negar
+hacer modificaciones. No obstante, es muy conveniente informar previamente
+de nuestras necesidades y de nuestra planificación técnica.
+
+Hay que esforzarse para que la comunidad de soporte del componente que
+modificar entienda nuestra propuesta y se involucre en ella.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Informar de nuestros planes a otras comunidades técnicas relevantes
+--
+[.tags]
+* Adaptación
+* Plugin
+* NuevoProducto
+
+Las comunidades de software libre suelen estar muy interesadas en aportar
+ideas, conocimiento técnico e, incluso, horas de trabajo ante retos técnicos
+y proyectos que crean que las pueden beneficiar.
+
+Los proyectos del IMI estudiarán las posibilidades de colaboración con las
+comunidades locales de software libre y tecnologías innovadoras para
+promover la innovación social y tecnológica.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Contratar desarrolladores reconocidos dentro del proyecto que se quiere modificar 
+--
+[.tags]
+* Contratar
+* Adaptación
+* Plugin
+
+
+Puede ser directamente o a través del contrato con una empresa o cooperativa
+adjudicataria.
+
+Nunca hay garantías de que las modificaciones que necesitamos hacer vayan a
+ser aceptadas dentro del producto original, pero contar con desarrolladores
+reconocidos es la vía que nos da más opciones de conseguirlo. Estos pueden
+aportar, además del conocimiento técnico, los siguientes valores:
+
+Una visión desde dentro de qué propuestas técnicas pueden tener mejor
+aceptación.
+
+El reconocimiento que aporta ser una voz respetada dentro de la comunidad
+que toma decisiones.
+--
+
+[sidebar.alternative, id="{sect}.{counter:measure:A}"]
+.Obligar al adjudicatario a implementar medidas que faciliten integrar los cambios en el producto original 
+--
+[.tags]
+* Contratar
+* Adaptación
+
+
+Eso incluye lo siguiente:
+
+* Describir con claridad las tareas colaborativas en que se espera que el
+  adjudicatario se involucre, y explicar que eso forma parte del presupuesto,
+  como se describe en la #h:a6bb27a3-2b23-4585-81ca-dc5b4d29ccd7[medida
+  Presupuestar el sobrecoste de participar en la comunidad abierta del
+  producto que modificar].
+ 
+* Que el adjudicatario acepte y aplique las directrices de desarrollo, las
+  normas de redacción de documentación y el código de conducta del proyecto,
+  si lo tiene, u otros documentos escritos que regulen las normas que puedan
+  existir, tanto generales como específicas por canales de comunicación
+  concretos. En caso de que el proyecto no haya formalizado un corpus propio
+  de normas internas, se aplicarán las normas usuales de netiqueta, por
+  ejemplo, https://www.ietf.org/rfc/rfc1855.txt.
+
+* Que determinados perfiles del adjudicatario se creen usuarios en los canales
+  de comunicación del proyecto.
+
+*  Que se informe periódicamente a la comunidad de las modificaciones
+   planificadas, de la parte ejecutada, de las decisiones técnicas que se van
+   tomando.
+
+*  Que se informe puntualmente al IMI de todo el feedback recibido por parte de
+   la comunidad, tanto positivo como negativo, sobre las pretensiones de
+   integrar una nueva funcionalidad.
+
+El personal del IMI deberá hacer seguimiento de todo ello y quizás
+intervenir directamente en los debates de la comunidad.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Penalizar a los adjudicatarios si hay cambios en la plantilla del proyecto 
+--
+[.tags]
+* Contratar
+* Adaptación
+* Plugin
+* NuevoProducto
+
+Debe tenerse en cuenta en la redacción del pliego de contratación.
+
+Una alta rotación penaliza cualquier proyecto, pero especialmente cuando se
+participa en proyectos de software libre. Los desarrolladores que se marchan
+no solo se llevan con ellos el conocimiento técnico que puedan acumular,
+sino su estatus dentro de la comunidad y las relaciones humanas que puedan
+haber desarrollado.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Presupuestar el sobrecoste de participar en la comunidad del producto a modificar 
+--
+[.tags]
+* Contratar
+* Adaptación
+* Plugin
+
+Se tiene que especificar de la manera más detallada posible cómo y en qué
+medida el IMI espera que el adjudicatario se involucre en el proyecto y
+difundir las funcionalidades que desarrollar, tanto en:
+
+* Las comunidades de desarrollo implicadas
+* Potenciales usuarios y usuarias
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Mantener un canal de comunicación privado permanente para discutir conflictos de interés 
+--
+[.tags]
+* Adaptación
+* Plugin
+
+Idealmente un hilo de correo.
+
+Cuando se contrata a personas para participar en un proyecto de software
+libre ya establecido, sobre todo si son desarrolladores que ya participaban
+en el proyecto, los intereses del proyecto del Ayuntamiento y los del
+proyecto original pueden entrar en conflicto. Los desarrolladores tendrán la
+sensación de que tienen que servir a dos jefes y que no siempre se puede
+satisfacer a los dos.
+
+Se tiene que pedir máxima transparencia en estos casos e intentar anticipar
+estas situaciones.
+--
+
+
+== Gestión y gobernanza de comunidades de software libre
+
+:!measure:
+:sect: 6.2
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Otorgar reconocimiento a las personas que hacen contribuciones al proyecto 
+--
+[.tags]
+* Plugin
+* NuevoProducto
+
+En un fichero CONTRIBUTORS en la raíz del repositorio. De manera individual.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Presupuestar el sobrecoste de incentivar la creación de una comunidad de software libre
+--
+[.tags]
+* NuevoProducto
+
+Esto incluye cuestiones como que los desarrolladores dediquen tiempo a lo
+siguiente:
+
+* Revisar código de terceros
+* Responder mensajes en los canales de comunicación del proyecto
+* Intervenir en StackOverflow
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Redactar y actualizar un documento interno estableciendo el grado de compromiso que queremos tener con cada parte
+--
+[.tags]
+* NuevoProducto
+
+Hay que prestar especial atención a los posibles early adopters.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Establecer por contrato que el adjudicatario debe incluir contribuciones externas si lo decide el Ayuntamiento 
+--
+[.tags]
+* Contratar
+* Plugin
+* NuevoProducto
+* Publicación
+
+.Ejemplo de cláusula: contribuciones externas
+****
+Durante la duración del contrato, incluyendo el periodo de garantía, el
+adjudicatario tiene la obligación de integrar aquellas contribuciones
+externas que el Ayuntamiento de Barcelona considere que mejoran el código o
+la documentación pública y que no implican el desarrollo de funcionalidades
+no previstas en el contrato por parte del adjudicatario, por ejemplo, las
+que solucionan bugs.
+****
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Publicar unas breves directrices para desarrolladores 
+--
+[.tags]
+* Día1
+* Plugin
+* NuevoProducto
+* Publicación
+
+Esta guía establece las convenciones técnicas y sociales que determinan las
+interacciones entre desarrolladores, y entre desarrolladores y usuarios. Es
+de aplicación para todos los desarrolladores, tanto los contratados por el
+Ayuntamiento como los externos, y también para el personal del propio
+Ayuntamiento.
+
+Debe redactarse en inglés y tiene que ser o bien una página de la propia
+wiki de GitHub, o bien un fichero de texto con lenguaje de marcas ligero.
+
+La guía puede crecer con el tiempo, pero al principio solo hace falta dejar
+claras tres cuestiones:
+
+. Cuáles son los canales de comunicación de los que dispone el proyecto y para
+  qué se utiliza cada uno.
+. Instrucciones de cómo reportar defectos (bugs) y de cómo hacer
+  contribuciones al proyecto.
+. Una descripción breve de cómo es la gobernanza del proyecto: quién y cómo
+  toma las decisiones. 
+
+En muchos casos solo habrá que especificar que durante la duración del
+contrato en vigor el Ayuntamiento es quien prioriza las funcionalidades que
+desarrollar y los defectos que arreglar. También tiene la última palabra
+sobre las soluciones técnicas que adoptar, las contribuciones que integrar y
+las versiones que publicar. Se puede decir que en el futuro se estudiará un
+modelo de gobernanza adecuado a la evolución de las circunstancias del
+proyecto.
+
+Estas directrices para desarrolladores tienen que estar enlazadas como
+mínimo desde:
+
+* El fichero README del repositorio principal.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Publicar unas directrices para desarrolladores (developer guidelines) detalladas (si el proyecto crece)
+--
+[.tags]
+* Plugin
+* NuevoProducto
+* Publicación
+
+Para proyectos grandes, y sin que sea la primera medida, puede ser
+interesante elaborar y publicar unas directrices para desarrolladores más
+extensas y detalladas que las que se propone en la
+link:#publicar-breus-directrius-desenvolupadors[medida: (Día 1) Publicar
+unas breves directrices para desarrolladores (developer guidelines)].
+
+Puntos que se pueden incluir:
+
+* Convenciones de codificación
+* Convenciones para la documentación
+
+Algunos ejemplos:
+
+* http://subversion.apache.org/docs/community-guide/
+*  https://wiki.documentfoundation.org/Development
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Redactar un modelo de gobernanza para la comunidad global que dé soporte al producto 
+--
+[.tags]
+* NuevoProducto
+* Publicación
+
+Los proyectos que generan sistemas y herramientas completamente FOSS (free
+and open source software) a través de un servicio de desarrollo promovido y
+financiado por el Ayuntamiento tendrán que incluir un modelo de gobernanza
+que incluya, entre otros: una aproximación a la definición de la comunidad
+(de otros Ayuntamientos, especialistas como geodata o bibliotecas,
+etcétera), las herramientas de soporte, la comunicación y el márquetin, los
+procesos para la inclusión de contribuciones externas, la gestión de la
+propiedad intelectual y la sostenibilidad más allá del proyecto.
+
+La gobernanza de la comunidad y la gestión técnica de estos proyectos,
+incluida la aprobación del código para su incorporación en el proyecto y la
+definición de requerimientos (roadmap), son aspectos diferentes. Se
+promoverá la diversidad de contribuciones, pero el IMI mantendrá el control
+efectivo de los desarrollos financiados por fondos públicos.
+--
+
+
+== Uso adecuado de los canales de comunicación
+
+:!measure:
+:sect: 6.3
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Evitar los debates privados
+--
+[.tags]
+* Adaptación
+* Plugin
+* NuevoProducto
+
+Es muy tentador tener foros de debate cerrados donde un pequeño grupo de
+personas discuten todos los aspectos del proyecto, tanto por la parte
+técnica como por la social, y que de allí salgan las decisiones. Pero
+conviene tener muy en cuenta que en los proyectos de software libre resultan
+imprescindible los canales de comunicación abiertos y públicos, que todo el
+mundo puede leer y a los que todo el mundo se puede suscribir con cierta
+facilidad. Los motivos son los siguientes:
+
+* Es muy difícil que la gente quiera hacer contribuciones significativas en un
+  proyecto donde las decisiones se toman de forma opaca y como política de
+  hechos consumados. Eso no significa que la gobernanza del proyecto tenga que
+  funcionar como una democracia. El requisito primordial es la
+  *transparencia*: los participantes querrán saber por qué y cómo se toman las
+  decisiones, y quizás también compartir sus ideas, sin que necesariamente la
+  opción que proponen sea la escogida. Los desarrolladores experimentados
+  saben que el proyecto tiene unas necesidades y que no todo el mundo puede
+  participar en las decisiones con el mismo peso. Que al final las decisiones
+  las tome el Ayuntamiento es algo que todos entenderán si se deja claro desde
+  el principio, como se especifica en la
+  link:#publicar-breus-directrius-desenvolupadors[medida (Día 1) Publicar unas
+  breves directrices para desarrolladores (developer guidelines)].
+
+* Es sorprendente la cantidad de buenas ideas que desinteresadamente pueden
+  llegar a través de los canales de comunicación públicos, si en estos se
+  discuten todos los aspectos del proyecto y hay un clima de trabajo cordial.
+
+* Si las comunicaciones se hacen en listas de correo públicas y archivadas, se
+  puede consultar todo el historial de decisiones y no volver a repetir
+  debates.
+
+* Que los canales sean abiertos y públicos incentiva una cultura comunicativa
+  más eficaz, educada y asertiva.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Establecer el contributor covenant como código de conducta del proyecto y de sus canales de comunicación 
+--
+[.tags]
+* Plugin
+* NuevoProducto
+
+El *código de conducta* de un proyecto es un documento o conjunto de
+documentos que regulan las normas sociales de actuación para los
+participantes en el proyecto, incluyendo los siguientes aspectos:
+
+* Normas de participación en todos los canales de comunicación telemáticos
+  asociados al proyecto, como chats, listas de correo públicas y privadas,
+  herramientas de seguimiento de incidencias (issue trackers), herramientas de
+  desarrollo de funcionalidades y pull-requests, wikis, blogs, Twitter, foros,
+  etcétera.
+
+* Normas de conducta para actividades presenciales de la comunidad asociada al
+  proyecto, como encuentros y congresos.
+
+Un código de conducta sirve para tener una referencia escrita de qué
+comportamientos se consideran inadecuados para los participantes del
+proyecto. En concreto, el de https://www.contributor-covenant.org/ lo
+utilizan últimamente muchos proyectos de software libre, y, por lo tanto,
+puede ser que muchos desarrolladores ya estén familiarizados con él. También
+se encuentra traducido a varios idiomas.
+
+Enlazar como mínimo desde los siguientes elementos:
+
+* El fichero README del repositorio principal.
+
+* Las directrices para desarrolladores de la _medida_: _(Día 1) Publicar unas
+  brevesdirectrices para desarrolladores (developer guidelines)_.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.No dejar pasar ningún insulto o ataque personal en los canales de comunicación
+--
+[.tags]
+* Plugin
+* NuevoProducto
+
+Conviene mantener una política de tolerancia cero en este aspecto. Eso no
+significa hacer expulsiones directas (en ocasiones no será ni siquiera
+posible), significa que alguien se tiene que encargar de hacer constar
+sistemáticamente que ciertos comportamientos no se toleran en este proyecto.
+
+Si se considera oportuno, se puede hacer referencia a las secciones
+pertinentes del código de conducta
+(#h:c3405dee-679e-42e0-9ba6-141a0ad06965[medida Establecer el contributor
+covenant como código de conducta del proyecto y de sus canales de
+comunicación]).
+
+En http://producingoss.com/es/setting-tone.html#prevent-rudeness se dan
+algunos detalles de cómo gestionar estas situaciones.
+--

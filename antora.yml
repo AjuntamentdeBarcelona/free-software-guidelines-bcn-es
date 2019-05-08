@@ -2,13 +2,13 @@
 # language (LANG/DOC_NAME where LANG is one of ca, en, es). Use '-' as word separator. It
 # can include letters, numbers and periods ( . ), but no other symbols.
 # Example: en/my-awesome-doc
-name:
+name: es/free-soft
 
 # MANDATORY. Title of the document as we want it to appear in
 # www.barcelona.cat/digitalstandards/ menus and navigation links. It's probably
 # the same as README.adoc's {_title} attribute.
 # Example: My Awesome Document
-title:
+title: Gestión de software libre
 
 # MANDATORY.
 version: 0.1
@@ -18,7 +18,7 @@ version: 0.1
 # https://docs.antora.org/antora/page/page-id/ to understand how Antora's
 # Page Ids work.
 # Example: ROOT:introduction.adoc
-start_page:
+start_page: ROOT:introduction.adoc
 
 # MANDATORY. A list of Antora navigation files. You probably don't need to
 # change this field. See https://docs.antora.org/antora/navigation/ if you want

@@ -1,0 +1,305 @@
+= Organización de esta guía
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+include::{partialsdir}/README.adoc[tag=metadata]
+
+Esta guía consta de una serie de directrices divididas en dos categorías:
+
+*Medidas* que hay que implementar y cumplir en todos los proyectos.
+
+*Recomendaciones* que no son de aplicación obligatoria, pero que pueden ser de utilidad en determinadas situaciones.
+
+Es responsabilidad de los jefes y jefas de proyecto validar si las medidas
+se están implementando correctamente, y decidir qué recomendaciones deben
+aplicarse.
+
+Algunas medidas son bastante complejas, por eso se fraccionan en
+*submedidas* que pueden ser validadas individualmente.
+
+Algunas medidas son imposibles de aplicar en determinados proyectos; en este
+caso, se intenta ofrecer algunas *alternativas* (directrices que se
+encuentran etiquetadas de esta forma a lo largo del documento). Cada medida
+y sus potenciales alternativas se encuentran mutuamente enlazadas.
+
+Cada medida, recomendación o alternativa consta de los siguientes elementos:
+
+* Un identificador único para todo el documento.
+* Un listado de etiquetas.
+
+Las *etiquetas* ayudan a restringir en qué momentos y en qué tipo de
+proyectos es importante cada medida y cada recomendación. Pueden servir, por
+ejemplo, para generar una checklist de cuestiones que la dirección del
+proyecto necesite comprobar.
+
+Los apartados de este capítulo explican los tipos de etiquetas que se
+utilizan a lo largo de la guía. El resto de capítulos de la guía ordenan las
+medidas y recomendaciones en áreas temáticas y aportan el contexto necesario
+para entender la relevancia de cada medida.
+
+En el [anexo “Listados de medidas y recomendaciones por etiquetas”] se
+pueden encontrar diferentes listados de medidas y recomendaciones
+categorizados por etiquetas.
+
+== Etiquetas por escenarios de uso
+
+En este apartado se definen diferentes situaciones o *escenarios* que se
+pueden producir en los proyectos tecnológicos en relación con los
+componentes de software libre en los que se basan. Estos escenarios
+determinan posteriormente qué medidas y recomendaciones afectan a cada
+proyecto.
+
+Cada *proyecto* define un sistema de información, y cada sistema de
+información consta de una determinada cantidad de *componentes* de
+software. Unos componentes se distinguen de los otros porque cada componente
+tiene su propio *repositorio* de código fuente (ocasionalmente encontramos
+componentes complejos que, por razones prácticas, tienen su código repartido
+en diferentes repositorios que se versionan y distribuyen
+coordinadamente). Los diferentes componentes de un determinado sistema
+pueden ejecutarse todos en una misma máquina, o bien pueden encontrarse
+distribuidos en diferentes máquinas. También pueden ejecutarse como parte
+del mismo proceso o en procesos distintos.
+
+Los escenarios contemplados son los siguientes:
+
+[cols="20,80", options="header"]
+|===
+| Etiqueta
+| Descripción
+
+| `Integración`
+| *Integrar componentes existentes*: se necesita implantar un nuevo sistema que se puede construir sobre la base de componentes ya existentes.
+
+| `Adaptación`
+| *Modificar un componente externo*: hay que añadir funcionalidad a un componente ya disponible, o bien mejorarlo solucionando deficiencias, añadiendo traducciones, etcétera.
+
+| `Plugin`
+| *Extender una plataforma con componentes enchufables*: se requiere crear nuevos componentes que se integren en una plataforma o framework ya disponible y que facilita esta tarea.
+
+| `NuevoProducto`
+| *Crear un componente nuevo*: se necesita crear una solución nueva desde cero.
+
+| `Publicación`
+| *Publicar código de un componente propio ya existente*: se dispone de un código propio desarrollado bajo contratos anteriores y que nunca ha sido publicado, y se quiere liberar en un repositorio público.
+
+| `Documento`
+| *Publicar documentación no vinculada a un único proyecto*: se dispone de una documentación no directamente vinculada a código pero que se quiere liberar en un repositorio público.
+|===
+
+Todos los escenarios, a excepción de los escenarios `Integración` y
+`Documento`, hacen referencia a un único componente de software. Por lo
+tanto, en un mismo proyecto pueden concurrir distintos escenarios si
+componentes diferentes se encuentran afectados de diferente forma.
+
+Dejamos fuera del análisis contribuciones a proyectos que no implican una
+modificación del código de un componente, o la creación de un repositorio,
+como pueden ser contribuciones a la documentación o facilitación de la
+adopción de ciertas herramientas por parte de terceros.
+
+Los escenarios `Integración`, `Adaptación`, `Plugin` y `NuevoProducto`
+pueden requerir opcionalmente una migración, en caso de que nos encontremos
+en la situación de implantar un sistema que sustituye, en parte o
+totalmente, las funciones de un sistema anterior.
+
+=== Escenario `Integración`
+
+Este escenario puede comportar la creación de uno o más repositorios
+propios, pero no para guardar el código de ninguna aplicación propiamente,
+sino para lo siguiente:
+
+* Vincular herramientas de gestión de proyectos tales como gestores de
+  incidencias
+* Guardar o enlazar documentación asociada con el uso y operación del sistema
+* Guardar ficheros de configuración y scripts necesarios para el despliegue
+  del sistema
+* Guardar ficheros de configuración y scripts necesarios para ejecutar
+  entornos de prueba y de integración continua, incluyendo _virtualización_ y
+  _contenerización_
+* Guardar elementos de diseño y personalización del sistema
+* Guardar instrucciones de instalación y uso del sistema
+* Guardar test de integración de los diferentes componentes
+
+En cuanto a los elementos de personalización, destaca la *traducción* de los
+literales que se muestran al usuario y otros aspectos de la localización e
+internacionalización (l10n, i18n). Se contemplan dos posibilidades:
+
+* Se cumplen dos condiciones: (1) el software que traducir está diseñado para
+  incorporar traducciones de la interfaz, y (2) las traducciones que realizar
+  pueden ser de utilidad general para otros potenciales usuarios de la
+  herramienta. En este caso, se intentará incluir estas traducciones en el
+  proyecto original y, por lo tanto, nos encontraríamos en el
+  link:#escenari-adaptacio[escenario Adaptación].
+* Alguna de las dos condiciones anteriores no se cumple y almacenamos los
+  ficheros necesarios para efectuar la traducción en un repositorio propio.
+
+[example]
+.Ejemplo:
+====
+Un ejemplo hipotético sería un portal web construido utilizando un gestor de
+contenidos como Wordpress, con una base de datos MariaDB.
+====
+
+[[escenario-integración]]Se trata de componentes estándar de software libre,
+pero para facilitar su gestión puede convenir guardar en un repositorio
+elementos de personalización como plantillas, ficheros CSS, imágenes,
+listado de extensiones de Wordpress que cargar, así como imágenes de Docker
+que incluyan todos los elementos necesarios para el despliegue.
+
+=== Escenario `Adaptación`
+
+Este escenario puede comportar la creación de uno o más repositorios propios
+con los mismos contenidos descritos para el
+link:#escenari-integracio[escenario “Integración”]. En cambio, el rasgo
+distintivo de este escenario es el patrocinio por parte del Ayuntamiento de
+Barcelona del desarrollo de alguna contribución significativa a un producto
+de software libre que pueda ser potencialmente incorporada al producto
+original (aunque esta integración no se realice mientras dura el propio
+desarrollo). Estas contribuciones deben materializarse en un conjunto de
+commits en un repositorio que esté vinculado de alguna manera al repositorio
+del producto original.
+
+Las contribuciones pueden ser de diversa naturaleza:
+
+* Nuevas funcionalidades que el Ayuntamiento de Barcelona necesita y que
+  pueden ser de interés para más entidades o usuarios.
+* Traducciones completas (o con una cobertura significativa) de la interfaz de
+  usuario, así como otras mejoras de localización (l10n) e
+  internacionalización (i18n) que pueden ser de utilidad general para otros
+  usuarios potenciales de la herramienta.
+
+Si las traducciones o elementos de localización se encuentran mezclados con
+elementos de personalización propios del Ayuntamiento, o bien el producto
+original no está diseñado para incorporar nuevas traducciones y
+localizaciones, entonces no se puede plantear una contribución como tal y
+nos encontraríamos en el link:#escenari-integracio[escenario “Integración”].
+
+[example]
+.Ejemplo: buzón ético del Ayuntamiento de Barcelona
+====
+Existía un software original, el de https://www.globaleaks.org/[Globaleaks],
+al que se le han incorporado las funcionalidades de generación de expediente
+interno y de devolución de respuesta al usuario en forma de PDF. Estas
+funcionalidades ahora mismo forman parte de la rama master del
+https://github.com/globaleaks/GlobaLeaks[repositorio principal de
+Globaleaks].
+====
+
+[[escenario-adaptación]]En el mismo proyecto se han desarrollado tareas de
+personalización, incluyendo la traducción de la interfaz al catalán, pero,
+como algunos literales no son de uso general, sino que son personalizaciones
+propias del Ayuntamiento, la traducción en sí no se ha podido aportar al
+proyecto original.
+
+=== Escenario `Plugin`
+
+Se trata de un escenario intermedio entre la integración de funcionalidades
+nuevas en un producto ya existente (link:#escenari-adaptacio[escenario
+“Adaptación”]) y el desarrollo de un nuevo producto (link:\l[escenario
+“NuevoProducto”]), y comparte características de los dos.
+
+Por un lado, se parte de un software ya existente al que se tiene que añadir
+funcionalidad. Por el otro, la arquitectura de este software es modular y
+prevé la extensión mediante un mecanismo estandarizado que permite una
+evolución semiindependiente de los nuevos módulos, de tal manera que en
+algunos aspectos se parecen bastante a un producto nuevo. En particular, los
+nuevos módulos tienen su repositorio propio (que no es una copia del
+repositorio del producto original), y las entregas están desvinculadas de
+las del producto marco.
+
+[example]
+.Open Data Barcelona
+====
+El http://opendata-ajuntament.barcelona.cat/[portal de datos abiertos del
+Ayuntamiento] está basado en el software de portal de datos
+https://ckan.org/CKAN]. Este producto es
+http://docs.ckan.org/en/latest/extensions/plugin-interfaces.htm]fácilmente
+extensible] mediante plugins o extensiones, y durante el desarrollo del
+nuevo portal fue necesario tanto modificar una extensión ya existente (lo
+que se correspondería con el link:#escenari-adaptacio[escenario
+“Adaptación”]) como crear otras nuevas.
+====
+
+=== Escenario `NuevoProducto`
+
+Cuando no se encuentra ningún componente o combinación de componentes que
+satisfaga una determinada necesidad, debe encargarse la implementación de un
+producto nuevo. Este producto puede basarse en otros componentes
+preexistentes, como frameworks, bibliotecas, gestores de bases de datos,
+etcétera.
+
+[example]
+.Decidim.Barcelona
+====
+https://decidim.org/[Decidim] es una herramienta de democracia participativa
+para ciudades y organizaciones. Su desarrollo estuvo patrocinado desde el
+principio por el Ayuntamiento de Barcelona, aunque ahora otras
+organizaciones que lo utilizan empiezan a aportar recursos. Se basa en el
+framework para desarrollo web http://rubyonrails.org/[Ruby on Rails]. Este
+framework facilita en gran medida el desarrollo de nuevas aplicaciones web,
+pero estas no consisten simplemente en una integración y configuración de
+componentes.
+
+La historia de https://decidim.org/[Decidim] es un poco rocambolesca porque
+inicialmente se intentó hacer una adaptación de un software ya existente, el
+https://github.com/consul/consul[Consul]. Más tarde, fue necesario hacer un
+fork del software original y, finalmente, se optó por reescribir de nuevo la
+aplicación (mejorando, entre otros aspectos, la modularidad del código).
+====
+
+=== Escenario `Publicación`
+
+El Ayuntamiento de Barcelona es el propietario legal de gran parte del
+código que se encuentra en uso actualmente, pero que nunca ha sido
+publicado. Las medidas y recomendaciones específicas de este escenario
+explican las comprobaciones adicionales necesarias para publicar, bajo una
+licencia libre, un código que no fue inicialmente pensado para distribuirse
+libremente.
+
+Puede haber diferentes razones que justifiquen la publicación de un código,
+siempre que cumpla con ciertos requisitos de calidad. Una posible situación
+es que se quiera iniciar un nuevo contrato de desarrollo para extender o
+adaptar un componente ya existente (lo que equivaldría a una combinación del
+link:#escenari-adaptacio[escenario “Adaptación]” y el [[escenario
+“Publicación”]]).
+
+=== Escenario Documento
+
+A veces se quiere hacer público un documento que se ha redactado (o que se
+ha encargado) y que puede no estar directamente vinculado con un único
+proyecto de software. Se puede tratar de estudios de mercado, trabajos de
+investigación, elementos de diseño gráfico (por ejemplo, logotipos),
+etcétera.
+
+== Etiquetas para fases y momentos de los proyectos
+
+A la hora de categorizar las medidas y recomendaciones también es
+interesante tener en cuenta en qué momento deben aplicarse. Como regla
+general, se puede considerar que los proyectos tecnológicos pasan por las
+siguientes fases:
+
+* *Concepción*: fase en la que se descubre una nueva necesidad o surge la idea del proyecto, y que normalmente incluye la elaboración de un anteproyecto y posiblemente de otros estudios previos.
+* *Contratación*: redacción de los pliegos para la adquisición de servicios (de desarrollo o de otra naturaleza).
+* *Desarrollo*: creación del código, documentación y otros artefactos, incluyendo el establecimiento de la infraestructura necesaria para su construcción.
+* *Paso a producción*: despliegue del servicio, incluyendo la posible migración de datos y procesos desde uno o más sistemas previos.
+* *Explotación*: fase que se extiende durante toda la vida útil del sistema en producción, incluyendo las labores de operación y mantenimiento.
+
+Teniendo todo esto en cuenta, en la guía se utilizan las siguientes
+etiquetas para señalar momentos destacados de los proyectos:
+
+[cols="30,70", options="header"]
+|===
+| Etiqueta
+| Descripción
+
+| `Anteproyecto`
+| Medidas que tener en cuenta en la redacción del anteproyecto.
+
+| `Contratar`
+| Medidas que tener en cuenta en la redacción de los pliegos para la contratación de servicios.
+
+| `Día1`
+| Medidas que aplicar desde el primer día de inicio de la fase de desarrollo (ver el apartado “Trabajar en abierto desde el día 1”). ).
+
+| `Release`
+| Medidas que tener en cuenta en el momento en que se hace pública una nueva versión del producto.
+|===
