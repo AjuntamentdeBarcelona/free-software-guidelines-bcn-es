@@ -17,18 +17,18 @@ function patchPlaybook(cb) {
       .toString()
       .trimRight()
       .replace(/.*\//, '')
-  let sourcesNew = sourcesOld.map(
+  let sourcesNew = sourcesOld.filter(
+    value => value['url'].match(toRegex(originUrl, {contains: true, safe: true})) === null
+  ).map(
     (value, _index, _object) => {
       if (value['url'] === '.') {
         value['url'] = 'https://github.com/AjuntamentdeBarcelona/ethical-digital-standards-site.git'
         value['branches'] = 'master'
       }
-      if (value['url'].match(toRegex(originUrl, {contains: true, safe: true}))) {
-        value['url'] = '..'
-        value['branches'] = 'HEAD'
-      }
       return value
     }
+  ).concat(
+    { url: '..', branches: ['HEAD'] }
   )
   playbookContent.content.sources = sourcesNew
   playbookContent.output.dir = './build'
