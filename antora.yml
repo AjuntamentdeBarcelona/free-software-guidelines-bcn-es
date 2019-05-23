@@ -11,7 +11,7 @@ name: es/free-soft
 title: Gestión de software libre
 
 # MANDATORY.
-version: 0.1
+version: 0.2
 
 # MANDATORY. First page to show when we visit this document. It must be "ROOT:"
 # followed by a file present in modules/ROOT/pages/. See
