@@ -101,6 +101,7 @@ pueden requerir opcionalmente una migración, en caso de que nos encontremos
 en la situación de implantar un sistema que sustituye, en parte o
 totalmente, las funciones de un sistema anterior.
 
+[[use-case-integration]]
 === Escenario `Integración`
 
 Este escenario puede comportar la creación de uno o más repositorios
@@ -128,7 +129,7 @@ internacionalización (l10n, i18n). Se contemplan dos posibilidades:
   pueden ser de utilidad general para otros potenciales usuarios de la
   herramienta. En este caso, se intentará incluir estas traducciones en el
   proyecto original y, por lo tanto, nos encontraríamos en el
-  link:#escenari-adaptacio[escenario Adaptación].
+  <<use-case-adaptation, escenario Adaptación>>.
 * Alguna de las dos condiciones anteriores no se cumple y almacenamos los
   ficheros necesarios para efectuar la traducción en un repositorio propio.
 
@@ -139,24 +140,24 @@ Un ejemplo hipotético sería un portal web construido utilizando un gestor de
 contenidos como Wordpress, con una base de datos MariaDB.
 ====
 
-[[escenario-integración]]Se trata de componentes estándar de software libre,
-pero para facilitar su gestión puede convenir guardar en un repositorio
-elementos de personalización como plantillas, ficheros CSS, imágenes,
-listado de extensiones de Wordpress que cargar, así como imágenes de Docker
-que incluyan todos los elementos necesarios para el despliegue.
+Se trata de componentes estándar de software libre, pero para facilitar su
+gestión puede convenir guardar en un repositorio elementos de
+personalización como plantillas, ficheros CSS, imágenes, listado de
+extensiones de Wordpress que cargar, así como imágenes de Docker que
+incluyan todos los elementos necesarios para el despliegue.
 
+[[use-case-adaptation]]
 === Escenario `Adaptación`
 
 Este escenario puede comportar la creación de uno o más repositorios propios
-con los mismos contenidos descritos para el
-link:#escenari-integracio[escenario “Integración”]. En cambio, el rasgo
-distintivo de este escenario es el patrocinio por parte del Ayuntamiento de
-Barcelona del desarrollo de alguna contribución significativa a un producto
-de software libre que pueda ser potencialmente incorporada al producto
-original (aunque esta integración no se realice mientras dura el propio
-desarrollo). Estas contribuciones deben materializarse en un conjunto de
-commits en un repositorio que esté vinculado de alguna manera al repositorio
-del producto original.
+con los mismos contenidos descritos para el <<use-case-integration,
+escenario Integración>>. En cambio, el rasgo distintivo de este escenario es
+el patrocinio por parte del Ayuntamiento de Barcelona del desarrollo de
+alguna contribución significativa a un producto de software libre que pueda
+ser potencialmente incorporada al producto original (aunque esta integración
+no se realice mientras dura el propio desarrollo). Estas contribuciones
+deben materializarse en un conjunto de commits en un repositorio que esté
+vinculado de alguna manera al repositorio del producto original.
 
 Las contribuciones pueden ser de diversa naturaleza:
 
@@ -171,10 +172,10 @@ Si las traducciones o elementos de localización se encuentran mezclados con
 elementos de personalización propios del Ayuntamiento, o bien el producto
 original no está diseñado para incorporar nuevas traducciones y
 localizaciones, entonces no se puede plantear una contribución como tal y
-nos encontraríamos en el link:#escenari-integracio[escenario “Integración”].
+nos encontraríamos en el <<use-case-integration, escenario Integración>>.
 
 [example]
-.Ejemplo: buzón ético del Ayuntamiento de Barcelona
+.Buzón ético del Ayuntamiento de Barcelona
 ====
 Existía un software original, el de https://www.globaleaks.org/[Globaleaks],
 al que se le han incorporado las funcionalidades de generación de expediente
@@ -184,18 +185,19 @@ https://github.com/globaleaks/GlobaLeaks[repositorio principal de
 Globaleaks].
 ====
 
-[[escenario-adaptación]]En el mismo proyecto se han desarrollado tareas de
-personalización, incluyendo la traducción de la interfaz al catalán, pero,
-como algunos literales no son de uso general, sino que son personalizaciones
-propias del Ayuntamiento, la traducción en sí no se ha podido aportar al
-proyecto original.
+En el mismo proyecto se han desarrollado tareas de personalización,
+incluyendo la traducción de la interfaz al catalán, pero, como algunos
+literales no son de uso general, sino que son personalizaciones propias del
+Ayuntamiento, la traducción en sí no se ha podido aportar al proyecto
+original.
 
+[[use-case-plugin]]
 === Escenario `Plugin`
 
 Se trata de un escenario intermedio entre la integración de funcionalidades
-nuevas en un producto ya existente (link:#escenari-adaptacio[escenario
-“Adaptación”]) y el desarrollo de un nuevo producto (link:\l[escenario
-“NuevoProducto”]), y comparte características de los dos.
+nuevas en un producto ya existente (<<use-case-adaptation, escenario
+Adaptación>>) y el desarrollo de un nuevo producto (<<use-case-new-product,
+escenario Nuevo Producto>>), y comparte características de los dos.
 
 Por un lado, se parte de un software ya existente al que se tiene que añadir
 funcionalidad. Por el otro, la arquitectura de este software es modular y
@@ -215,10 +217,11 @@ https://ckan.org/CKAN]. Este producto es
 http://docs.ckan.org/en/latest/extensions/plugin-interfaces.htm]fácilmente
 extensible] mediante plugins o extensiones, y durante el desarrollo del
 nuevo portal fue necesario tanto modificar una extensión ya existente (lo
-que se correspondería con el link:#escenari-adaptacio[escenario
-“Adaptación”]) como crear otras nuevas.
+que se correspondería con el <<use-case-adaptation, escenario Adaptación>>)
+como crear otras nuevas.
 ====
 
+[[use-case-new-product]]
 === Escenario `NuevoProducto`
 
 Cuando no se encuentra ningún componente o combinación de componentes que
@@ -246,6 +249,7 @@ fork del software original y, finalmente, se optó por reescribir de nuevo la
 aplicación (mejorando, entre otros aspectos, la modularidad del código).
 ====
 
+[[use-case-publication]]
 === Escenario `Publicación`
 
 El Ayuntamiento de Barcelona es el propietario legal de gran parte del
@@ -259,9 +263,10 @@ Puede haber diferentes razones que justifiquen la publicación de un código,
 siempre que cumpla con ciertos requisitos de calidad. Una posible situación
 es que se quiera iniciar un nuevo contrato de desarrollo para extender o
 adaptar un componente ya existente (lo que equivaldría a una combinación del
-link:#escenari-adaptacio[escenario “Adaptación]” y el [[escenario
-“Publicación”]]).
+<<use-case-adaptation, escenario Adaptación>> y el <<use-case-publication,
+escenario Publicación>>).
 
+[[use-case-document]]
 === Escenario Documento
 
 A veces se quiere hacer público un documento que se ha redactado (o que se

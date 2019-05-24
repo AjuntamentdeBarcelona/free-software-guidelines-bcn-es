@@ -1,301 +1,14 @@
-= Legal aspects
+= Documentación
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 include::{partialsdir}/README.adoc[tag=metadata]
 
-Free software projects are based on a whole series of technologies, working
-methods and ways of collaborating but all that would not be sustained
-without a very special legal mechanism: the free software licences.  The use
-of such licences in itself guarantees a series of inalienable rights, which
-allows a certain flexibility about the copyright policy.
-
-== Ownership of the code copyright
-
 :!measure:
-:sect: 7.1
-
-Until now, contracts with suppliers stipulated that all the software
-developed for the City Council within the framework of the contract, and
-associated documents, is owned by the Council.
-
-With free software licences, even though one does not have legal ownership
-of the source code, that code can be used as often as necessary and for
-whatever task is desired, as well as modified, adapted and redistributed
-(the latter under the conditions set by the licence).  So the City Council
-could waive assignment of the copyrights in the code (provided it obtains
-the code under a free software license), but for the moment we
-conservatively continue claiming assignment as the default policy (apart
-from the exceptions stated in the alternatives below).  The only two things
-that are not possible to do without being the legal owner of the code is
-relicense it or transfer the ownership.
-
-The main criterion for assessing who should hold the copyrights in the case
-of new projects, is to think which entity best ensures at each point that
-the appropriate measures are taken to disseminate the project, facilitate
-contributions from third parties, make it grow to achieve the objectives and
-make it sustainable in the long term.
-
+:sect: 8
 
 [sidebar.measure, id="{sect}.{counter:measure:A}"]
-.Establish Barcelona City Council as the owner of the new source code and the new documentation
---
-[.tags]
-* Contratar
-* Adaptación
-* Plugin
-* NuevoProducto
-* Publicación
-
-That is the default option but not the only one.  It forces the contractor
-to assign ownership of the copyrights in the code and the documentation that
-it generates.
-
-It particularly makes sense that the City Council should wish to concentrate
-all property rights on emblematic projects, principally used between public
-administrations, and on those over which it intends to decide to a large
-extent the rules of governance.
---
-
-[sidebar.alternative, id="{sect}.{counter:measure:A}"]
-.Assign ownership of the new source code to the legal owner of the original code
---
-[.tags]
-* Contratar
-* Adaptación
-
-
-When we adapt an existing product, to accept the inclusion of our code in
-the original product we may be asked to sign a Contributor Licence Agreement
-(CLA) or equivalent contract.  If not, the parts developed by the City
-Council can be owned by it.
---
-
-[sidebar.alternative, id="{sect}.{counter:measure:A}"]
-.Assign ownership of the source code to an independent non-profit
---
-[.tags]
-* Contratar
-* Plugin
-* NuevoProducto
-* Publicación
-
-
-There is a third option if the aim is for ownership to eventually go to an
-external organisation responsible for the running and governance of the
-project in the long term.  Given the nature of the function, that
-organisation will normally take the legal form of a foundation or other
-non-profit entity.  This makes sense in projects where, besides the City
-Council, other public, private or third sector bodies are involved
-financially and in decision-making.  In this case copyright must be assigned
-by contract, either directly to the corresponding entity, or initially to
-the City Council, so the latter can assign copyright to the entity at a
-later date.
-
-The foundation can manage other projects freed by the City Council or of
-other entities linked with the public sphere.
---
-
-[sidebar.alternative, id="{sect}.{counter:measure:A}"]
-.Establish the supplier as the legal owner of the new source code and the new documentation
---
-[.tags]
-* Contratar
-* Plugin
-* NuevoProducto
-* Publicación
-
-
-It makes sense to leave ownership in the hands of the company that develops
-the software when:
-
-Software components are for general use, including companies and not just
-public authorities.
-
-The supplier is a company or a cooperative with a track record of publishing
-free software and running free software communities, and which has a
-credible strategy for exploiting the product based on free software
-licences.
---
-
-== Choose a licence for the code
-
-:!measure:
-:sect: 7.2
-
-
-There are three options, depending on the use-case:
-
-* `NewProdct` or `Publication`: we choose the AGPL licence by default.
-
-* `Adaptation`: we modify an existing project.  In this case we have to
-  respect the licence it already has.
-
-* `Plugin`: we choose a licence commonly used in the ecosystem in which we
-  want to integrate a modular component.
-
-[sidebar.measure, id="{sect}.{counter:measure:A}"]
-.Use the AGPL-3.0 licence as the licence for distributing the project
---
-[.tags]
-* NuevoProducto
-* Publicación
-
-
-The https://www.gnu.org/licenses/why-affero-gpl.html[GNU Affero General
-Public License v3.0] (AGPL-3.0) has all the characteristics we need for City
-Council projects:
-
-It is a licence with copyleft, as required by Spanish law for public
-authorities creating free software products, and as it is reasonable to
-demand of them to prevent private appropriation of what has been financed
-using public money.
-
-For applications where users mainly interact via the internet, the law does
-not allow the creation of a closed service using software with this licence
-(it establishes internet access as a form of distribution for the purposes
-of the licence).  This is sometimes called internet copyleft.
-
-The licence’s governing body is the GNU project, the non-profit organisation
-that works for the benefit of free software communities.  Therefore, it is
-this group of activists and experts who will design future versions of the
-licence (to adapt it to new legal and technical circumstances) and the legal
-defence against possible attacks on the freedoms set out in its text.
-
-The main reason for choosing this licence as the default option are as
-follows:
-
-* It belongs to the GNU GPL family of licences, which is the best known.  Most
-  developers are familiar with its conditions, which means nobody will have to
-  spend time researching the licence to decide if they want to participate in
-  the project or not.
-
-* Opting for more widely used licences reduces the risk of fragmenting this
-  universal immaterial commons resource posed by free software, a risk caused
-  by the proliferation of licences and their reciprocal incompatibilities.
-
-[.drawback]
-****
-It is written in English.  For your information, translations into other
-languages can be used but the original version is the only legally valid
-one.
-****
---
-
-[sidebar.alternative, id="{sect}.{counter:measure:A}"]
-.Use the EUPL-1.2 licence as the licence for distributing the project
---
-[.tags]
-* NuevoProducto
-* Publicación
-
-
-The https://joinup.ec.europa.eu/page/introduction-eupl-licence[European
-Union Public License 1.2] (EUPL-1.2) is a licence created by the European
-Commission.
-
-The advantage it has over licences belonging to the GNU GPL family is that
-it has legally valid translations for all the EU’s official languages:
-https://joinup.ec.europa.eu/page/eupl-text-11-12.[https://joinup.ec.europa.eu/page/eupl-text-11-12].
-Its design has also taken into account the legal diversity of the member
-states as regards copyright terminology, warranties and applicable
-jurisdiction.
-
-Just like the AGPL-3.0, it has copyleft and internet copyleft.  The copyleft
-conditions it sets out in the case of linking with other products are softer
-than those of the AGPL-3.0 and more like those of the LGPL.  However, many
-legal experts think these differences are irrelevant before the European
-courts.  The fine details of the differences with the GP-3.0 (and with the
-AGPL-3.0 too) are explained at:
-https://joinup.ec.europa.eu/news/eupl-or-gplv3-comparison-t.
-
-Using this licence (in its latest version, 1.2) should pose a low risk of
-fragmentation for the free software commons, as it establishes explicit
-compatibility with the main families of licences with copyleft, including
-the GNU licences.  You can find more information on EUPL 1.2 compatibility
-with other licences at:
-https://joinup.ec.europa.eu/page/eupl-compatible-open-source-licences.
-
-The European Commission, through its Join Up initiative, is the licence’s
-governance body.
-
-*Drawback.* It is much less known and less widespread than the GNU GPL licences. Many developers may be hesitant about using it.
-At best, they might be convinced that its conditions are very similar to those of the AGPL-3.0.
-In the worst case scenario, they would prefer to contribute to another project that has a licence they are used to.
---
-
-[sidebar.measure, id="{sect}.{counter:measure:A}"]
-.Use the original licence for all code that modifies an existing component
---
-[.tags]
-* Contratar
-* Adaptación
-
-When we modify a component, and to ensure our modifications might
-potentially be incorporated into the original product, we have to respect
-the licence we are given, although we could modify it in the case of lax
-permissive licences.
-
-For development under contract, each circumstance needs to be specified in
-the specifications.
-
-If we have respected measure S_58B, the component we are modifying will have
-a free software licence.
---
-
-[sidebar.measure, id="{sect}.{counter:measure:A}"]
-.Use a licence commonly used in the ecosystem or technological platform of the component to be developed
---
-[.tags]
-* Contratar
-* Plugin
-
-If we have to build a plugin to an existing platform (the core of which,
-according to measure S_58B, has to be free), we have a certain margin for
-choosing the licence.  It is best to choose one from among those most used
-in the framework or platform in question, in order to facilitate the new
-component’s acceptance by the community.  We are interested in more people
-using and contributing towards maintaining our component.  So, if the AGPL
-or the EUPL are among these more popular licences, we choose them.
---
-
-== Comply with the licence obligations
-
-:!measure:
-:sect: 7.3
-
-[sidebar.measure, id="{sect}.{counter:measure:A}"]
-.Write a checklist with the obligations of the licences used and monitor compliance
---
-[.tags]
-* Integración
-* Adaptación
-* Plugin
-* NuevoProducto
-* Publicación
-
-Each licence grants different rights and obligations, to both users and
-developers.  We must ensure compliance with the obligations of all the
-licences for the main components of the project, whether we have chosen them
-or not.
-
-The summaries shown at https://tldrlegal.com/ could be very useful, for
-example:
-
-* https://tldrlegal.com/license/gnu-affero-general-public-license-v3
-
-* https://tldrlegal.com/license/european-union-public-licence
-
-This summary (focus particularly on the “Conditions” section of each
-licence) could also be useful: https://choosealicense.com/licenses/.
-
-With regard to the EUPL it is also worth reading
-https://joinup.ec.europa.eu/page/guidelines-users-and-developers[Guidelines
-for users and developers].
---
-
-[sidebar.measure, id="{sect}.{counter:measure:A}"]
-.Upload the licence text to the main repository
+.Subir un fichero README al repositorio principal 
 --
 [.tags]
 * Día1
@@ -303,136 +16,242 @@ for users and developers].
 * NuevoProducto
 * Publicación
 
-The licence will go in plain text in a file called `LICENSE` (no extension),
-in the repository’s root directory.
+Debe incluir la declaración de propósito y el resto de informaciones que a
+lo largo de este documento se menciona que se tienen que incluir en el
+`README`.
 
-The text of the two recommended licences (which should be copied word for
-word) can be found at:
+Se tiene que redactar en inglés y el formato tiene que ser texto con algún
+lenguaje de marcas ligero. Puede no tener extensión si contiene solo texto
+plano o una extensión que indique con qué formato de marcas se tiene que
+interpretar (es decir, en realidad el fichero tendrá nombre `README`.md si
+está escrito en Markdown).
 
-* https://www.gnu.org/licenses/agpl.txt
-
-* https://joinup.ec.europa.eu/sites/default/files/inline-files/EUPL%20v1_2%20EN(1).txt
-
-The `LICENSE` has to be in English.  When using the EUPL-1.2 licence, which
-has official translations, we have the option of including `LICENSE.ca.txt`
-and `LICENSE.es.txt` files.  The different translations can be found at
-https://joinup.ec.europa.eu/page/eupl-text-11-12.[https://joinup.ec.europa.eu/page/eupl-text-11-12].
+El contenido de este fichero (concretamente la versión que esté colgada en
+la rama `master`), formateado según las convenciones del lenguaje de marcas
+que se haya utilizado, es lo que [.line-through]#GitHub#  muestra como
+portada de la web de desarrollo. Por lo tanto, conviene comprobar que el
+formato es correcto y que se visualiza bien en un navegador web.
 --
 
 [sidebar.measure, id="{sect}.{counter:measure:A}"]
-.Include a copyright and licence notice in each code file
+.Utilizar, para toda la documentación del proyecto, formatos de wiki o formatos de marcas libres
 --
 [.tags]
-* Adaptación
+* Integración
 * Plugin
 * NuevoProducto
 * Publicación
 
-Most licences stipulate the inclusion of a licence and copyright notice.
+Para la web orientada a usuarios del proyecto, es aceptable escribir
+directamente HTML. El resto de documentación, esté o no incluida en el
+repositorio de código, estará en el formato de wiki correspondiente, o bien
+en uno de los siguientes formatos:
 
-This means at the top of all repository code files (except build script and
-installation files) there must be a notice that explicitly states which
-persons or entities are the code’s copyright holders and which licence
-establishes the distribution terms.
-
-It is important to point out under which specific version of the licence it
-is distributed, and we recommend stating that this will be automatically
-updated to future versions when these are released (usually to adapt to
-unforeseeable technological and social changes), with no need to update all
-the code files.  In the examples given below, this is shown by clauses such
-as “either version X of the License, or (at your option) *any later
-version*” or “version X or – as soon they will be approved by the European
-Commission – *subsequent versions* of the EUPL”.
-
-Obviously, the notice must go in a comment, using the comment syntax each
-program language uses.  And it must also include all the years when
-modifications have been made to the file.  This would be an example, if we
-use the AGPL-3.0 on Java code, assuming the copyright holder is Barcelona
-City Council:
-
-[source, java]
-----
-/* Copyright (C) 2017, 2018 Ajuntament de Barcelona
- *
- * This program is free software: you can redistribute it and/or modify it under
- * the terms of the GNU Affero General Public License as published by the Free
- * Software Foundation, either version 3 of the License, or (at your option) any
- * later version.
- *
- * This program is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
- * details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>
- */
-
-/* This file implements a system for ...
- */
-
-import ...
-----
-
-The same example using EUPL-1.2:
-
-[source, java]
-----
-/* Copyright (C) 2017, 2018 Ajuntament de Barcelona
- *
- * Licensed under the EUPL, Version 1.2 or – as soon they will be approved by
- * the European Commission - subsequent versions of the EUPL (the "Licence");
- * You may not use this work except in compliance with the Licence. You may
- * obtain a copy of the Licence at:
- *
- * https://joinup.ec.europa.eu/software/page/eupl
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the Licence is distributed on an "AS IS" basis, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * Licence for the specific language governing permissions and limitations under
- * the Licence.
- */
-
-/* This file implements a system for ...
- */
-
-import ...
-----
-
+* Asciidoc
+* Markdown
+* ReStructuredText (es el que utiliza por defecto Sphinx)
+* Org Mode
 --
 
 [sidebar.measure, id="{sect}.{counter:measure:A}"]
-.Establish a procedure for guaranteeing the integrity of the contributions
+.Documentar el proyecto para que terceros sean capaces de entenderlo, configurarlo y desplegarlo 
 --
 [.tags]
 * Contratar
+* Integración
+* Adaptación
+* Plugin
+* NuevoProducto
+
+Las entidades adjudicatarias de contratos —tanto de desarrollo como de
+despliegue— tienen que entender que no tendrán el monopolio de la
+configuración, el despliegue y el mantenimiento del producto.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Crear y mantener un manual de uso en la wiki de GitHub del proyecto 
+--
+[.tags]
+* Integración
 * Plugin
 * NuevoProducto
 * Publicación
 
-This means all the code in the repository has the permission of the person
-who wrote it (which is not always the person who makes the commit) to be
-there under the licence conditions of the project.
 
-If the code copyright holders have to be different from the authors (for
-example, because Barcelona City Council is the holder) an assignment of
-rights must be obtained.  This can be done in the following ways:
+Desde muy pronto tiene que haber una documentación accesible desde la web
+que explique cómo utilizar el producto a diferentes niveles o para
+diferentes roles: usuarios corrientes, administradores, etcétera. En el caso
+de librerías de código, los usuarios son programadores que no participan en
+el proyecto.
 
-* A “contributor agreement”-type contract
-* The corresponding tender contract
-* Directly through the software licence
+Tiene que valorarse adecuadamente en qué idiomas tiene que estar esta
+documentación, dependiendo de cuál sea el ámbito esperado de uso del
+producto. Se puede tener el catalán o el castellano como idioma principal de
+la documentación, pero, como mínimo, las tareas principales de
+administración deben explicarse también en inglés. Si llegan muestras de
+interés desde otros territorios, convendrá que toda la documentación de
+usuario se encuentre también traducida al inglés. En el caso de librerías de
+código o herramientas de desarrollo, toda la documentación tiene que estar
+desde el principio en inglés.
+
+La documentación nunca será completa y estará en constante evolución. Por
+eso conviene que sea fácilmente actualizable por diferentes personas y
+recomendamos inicialmente usar una wiki. Utilizar la misma wiki de GitHub
+nos evita tener que preparar más infraestructura y facilita que la
+documentación se encuentre automáticamente enlazada desde la página web del
+repositorio.
+
+Hasta que no haya mucha documentación de usuario/a, es recomendable
+mantenerla toda unida en una misma página de la wiki, con una tabla de
+contenidos al inicio, y no subdividirla en páginas, ya que así se facilita
+la búsqueda de palabras clave utilizando las funciones de búsqueda del
+navegador. Desde esta página conviene enlazar el resto de elementos de
+documentación, como las instrucciones de instalación, posibles tutoriales, o
+la posible lista de preguntas frecuentes (FAQ).
+
+Enlazar desde:
+
+* La web del proyecto.
+* El fichero `README` del repositorio principal.
 --
 
-[sidebar.measure, id="{sect}.{counter:measure:A}"]
-.Require all external code contributors to send a DCO and sign each commit
+[sidebar.alternative, id="{sect}.{counter:measure:A}"]
+.Crear y mantener un manual de uso en Sphinx [.line-through]# y publicarlo en las GitHub Pages
+--
+[.tags]
+* Plugin
+* NuevoProducto
+
+
+Esta es una alternativa para proyectos que crecen mucho y que posiblemente
+hayan empezado poniendo la documentación en la wiki. Se tiene que traspasar
+toda la información que haya en la wiki al nuevo formato, y eliminar la wiki
+para no confundir a los usuarios. Si se tiene claro desde el principio que
+el proyecto requerirá una buena cantidad de documentación, se puede optar
+desde el principio por esta vía.
+
+Toda la documentación irá a un subdirectorio doc dentro de la raíz del
+repositorio y se escribirá o bien en ReStructuredText o bien en Markdown,
+los dos lenguajes de marcas que soporta Sphinx.
+
+En este caso, por tratarse de proyectos grandes y que tienen que aspirar a
+llegar a públicos amplios, la documentación tendrá que estar necesariamente
+en inglés, sin perjuicio de que se pueda traducir a otros idiomas.
+
+Tener el código y la documentación en un mismo repositorio, lejos de ser un
+problema, facilita que ambos vayan sincronizados y que eso quede reflejado
+en el historial de commits.
+
+Enlazar desde:
+
+* La web del proyecto.
+* El fichero `README` del repositorio principal.
+
+Un ejemplo lo podemos encontrar en:
+https://github.com/commercialhaskell/stack/tree/master/doc.
+--
+
+
+Recomendación: Crear y mantener un listado de FAQ R_4B1::
+Tags: NuevoProducto Publicación + Links incoming: None + Links outgoing:
+None + Si se realiza de forma reactiva pero diligente, con preguntas reales
+de los usuarios, puede facilitar en gran medida que se encuentre rápidamente
+la información que se necesita y puede resultar una manera muy rentable de
+invertir los recursos del proyecto.
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Crear un tutorial explicando cómo hacer paso a paso algunas tareas habituales
 --
 [.tags]
 * Plugin
 * NuevoProducto
 * Publicación
+--
 
-The *Developer’s Certificate of Origin (DCO)* is the document used to verify
-that the developers who contribute to the project recognise and accept its
-licence.
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Subir un fichero con instrucciones de instalación al repositorio principal
+--
+[.tags]
+* Día1
+* Integración
+* Plugin
+* NuevoProducto
+* Publicación
+
+El procedimiento de instalación desarrollado en la
+link:#implementar-procediments-build-installacio[medida (Día 1) Implementar
+procedimientos de build e instalación con herramientas libres y de uso
+extendido] tiene que estar explicado en un fichero `INSTALL` en la raíz del
+repositorio principal.
+
+Se tiene que redactar en inglés y el formato tiene que ser texto con algún
+lenguaje de marcas ligero.
+
+Conviene incluir alguna medida o comando de diagnóstico que permita al
+usuario saber si la instalación se ha ejecutado correctamente (por ejemplo,
+ejecutar un juego de pruebas, y especificar el resultado esperado).
+
+El fichero de instalación debe estar enlazado como mínimo desde:
+
+* El fichero `README` del repositorio principal.
+--
+
+[sidebar.recommendation, id="{sect}.{counter:measure:A}"]
+.Complementar la documentación de usuario/a con capturas de pantalla, vídeos o demos 
+--
+[.tags]
+* NuevoProducto
+
+Para proyectos web grandes que quieran atraer la atención de muchas
+personas, el mejor reclamo es un demo site.
+
+Un vídeo explicando el uso y las características de la herramienta también
+puede resultar muy atractivo.
+
+Si el producto tiene una interfaz de usuario gráfica, es muy recomendable
+acompañar las explicaciones con capturas de pantalla. También se pueden
+utilizar en el listado de funcionalidades descrito en la
+#h:2dc43f4e-e755-4fe5-be4e-1f9dd58fe9e9[medida Especificar en sitios
+fácilmente accesibles un listado de funcionalidades].
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Especificar, en un sitio visible, una licencia de distribución para el manual de uso 
+--
+[.tags]
+* Integración
+* Plugin
+* NuevoProducto
+* Publicación
+
+Por defecto, hay que utilizar la licencia
+https://creativecommons.org/share-your-work/public-domain/cc0[Creative
+Commons Zero v1.0 Universal] (CC0-1.0).
+
+Un resumen de sus características se puede encontrar en:
+https://tldrlegal.com/license/creative-commons-cc0-1.0-universal .
+
+En el caso de la documentación, no tiene por qué utilizarse la misma
+licencia que para el software en sí, y, de hecho, en este caso sí que son
+admisibles las licencias de dominio público.
+
+En caso de crear documentación para proyectos externos, hay que utilizar las
+licencias que estos proyectos ya estén utilizando.
+--
+
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Especificar, en un sitio visible, una licencia de distribución para los documentos de diseño y estudios encargados 
+--
+[.tags]
+* Documento
+
+Por defecto, hay que utilizar la licencia
+https://creativecommons.org/licenses/[Creative Commons Attribution Share
+Alike 4.0] (CC-BY-SA-4.0).
+
+Seguir https://wiki.creativecommons.org/wiki/Website/Publish y
+https://creativecommons.org/choose/#metadata .
+
+Para entender sus características se puede consultar:
+https://tldrlegal.com/license/creative-commons-attribution-sharealike-4.0-international-(cc-by-sa-4.0).[https://tldrlegal.com/license/creative-commons-attribution-sharealike-4.0-international-(cc-by-sa-4.0)].
 --
