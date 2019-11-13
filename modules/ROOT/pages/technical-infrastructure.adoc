@@ -535,8 +535,8 @@ Este gestor de incidencias tiene que estar operativo y ser público durante
 toda la vida útil del producto, más allá de la duración que tengan los
 contratos con el Ayuntamiento.
 
-[sidebar.measure]
-.Vincular el repositorio principal al gestor de incidencias de GitHub 
+[sidebar.measure, id="{sect}.{counter:measure:A}"]
+.Vincular el repositorio principal al gestor de incidencias de GitHub/Gitlab 
 --
 [.tags]
 * Día1
